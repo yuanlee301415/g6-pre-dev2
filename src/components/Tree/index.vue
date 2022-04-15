@@ -95,9 +95,13 @@ export default {
   },
 
   created() {
+    console.log('tree>data:', this.data)
+
+    
     this.asyncInitializeData(this.data, () => {
       this.loading = false
       this.loaded && this.loaded()
+      console.log('cb>tree>data:', this.data)
       this.showSearch && setTimeout(() => {
         console.log('this.$refs[\'modelTreeSearch\']:', this.$refs['modelTreeSearch'])
         this.$refs['modelTreeSearch'].setTreeRef({
@@ -145,7 +149,14 @@ export default {
     },
 
     initializeDataItem(item) {
-      return Object.assign(new ModelTree(item, this.textFieldName, this.valueFieldName, this.childrenFieldName, this.collapse), item)
+      const node = Object.assign(new ModelTree(item, this.textFieldName, this.valueFieldName, this.childrenFieldName, this.collapse), item)
+      const self = this
+      node.addChild = function (data) {
+        const newItem = self.initializeDataItem(data)
+        node.opened = true
+        node[self.childrenFieldName].push(newItem)
+      }
+      return
     },
 
     asyncInitializeData(items, cb) {

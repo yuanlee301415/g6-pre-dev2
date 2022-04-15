@@ -3,9 +3,6 @@
         <Tree
             :data="tree.data"
             :key="tree.key"
-            text-field-name="displayName"
-            value-field-name="name"
-            collapse
             @item-click="onItemClick"
         />
     </div>

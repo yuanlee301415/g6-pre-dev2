@@ -94,6 +94,7 @@ export default {
 
   watch: {
     data (newValue) {
+      console.log('watch>data>val:', newValue)
       this.model = newValue
     },
     'model.opened': {
@@ -105,6 +106,8 @@ export default {
   },
 
   created () {
+    console.log('this.data', this.data)
+
     const events = {
       'click': this.handleItemClick,
       'mouseover': this.handleItemMouseOver,
