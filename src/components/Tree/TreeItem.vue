@@ -1,30 +1,37 @@
+
+
+
+
 <template>
-  <li role="treeitem"
-      :id="model._id"
+  <li
       :class="classes"
->
-    <i class="tree-icon tree-ocl" role="presentation" @click="handleItemToggle"></i>
+      :id="model._id"
+      role="modelTreeItem"
+  >
+    <i class="tree-icon tree-ocl" role="presentation" @click="handleItemToggle"/>
     <div :class="anchorClasses" v-on="events">
       <slot :vm="this" :model="model">
-        <i class="tree-themeicon" role="presentation" v-if="!model.loading"></i>
-        <span v-html="model[textFieldName]"></span>
+        <i v-if="!model.loading" class="tree-themeicon" role="presentation"/>
+        <span v-html="model[textFieldName]"/>
       </slot>
     </div>
-    <ul v-if="isFolder" :style="groupStyle" role="group" ref="group" class="tree-children" >
-      <tree-item v-for="(child, index) in model[childrenFieldName]"
-                 :key="index"
-                 :data="child"
-                 :text-field-name="textFieldName"
-                 :value-field-name="valueFieldName"
-                 :children-field-name="childrenFieldName"
-                 :height= "height"
-                 :parent-item="model[childrenFieldName]"
-                 :on-item-click="onItemClick"
-                 :on-item-toggle="onItemToggle"
-                 :klass="index === model[childrenFieldName].length-1?'tree-last':''">
+    <ul v-if="isFolder" ref="group" :style="groupStyle" role="group" class="tree-children">
+      <tree-item
+          v-for="(child, index) in model[childrenFieldName]"
+          :key="index"
+          :data="child"
+          :text-field-name="textFieldName"
+          :value-field-name="valueFieldName"
+          :children-field-name="childrenFieldName"
+          :height= "height"
+          :parent-item="model[childrenFieldName]"
+          :on-item-click="onItemClick"
+          :on-item-toggle="onItemToggle"
+          :klass="index === model[childrenFieldName].length-1?'tree-last':''"
+      >
         <template slot-scope="_">
           <slot :vm="_.vm" :model="_.model">
-            <i class="tree-themeicon" role="presentation" v-if="!model.loading"></i>
+            <i v-if="!model.loading" class="tree-themeicon" role="presentation"/>
             <span v-html="_.model[textFieldName]"></span>
           </slot>
         </template>
@@ -32,39 +39,60 @@
     </ul>
   </li>
 </template>
+
 <script>
 export default {
   name: 'TreeItem',
+
   props: {
+
     data: {type: Object, required: true},
+
+
     textFieldName: {type: String, default: 'displayName'},
+
+
     valueFieldName: {type: String, default: 'name'},
+
+
     childrenFieldName: {type: String, default: 'children'},
+
 
     parentItem: {type: Array, default: null},
 
+
     height: {type: Number, default: 24},
-    onItemClick: {
-      type: Function, default: () => false
-    },
-    onItemToggle: {
-      type: Function, default: () => false
-    },
+
+
+    onItemClick: {type: Function, default: () => function() {}},
+
+
+    onItemToggle: {type: Function, default: () => function() {}},
+
+
     klass: String
   },
 
   data () {
     return {
+
       isHover: false,
+
+
       model: this.data,
+
+
       events: {}
     }
   },
 
   computed: {
+
     isFolder () {
       return this.model[this.childrenFieldName] && this.model[this.childrenFieldName].length
     },
+
+
     classes () {
       return [
         {'tree-node': true},
@@ -75,6 +103,8 @@ export default {
         {[this.klass]: !!this.klass}
       ]
     },
+
+
     anchorClasses () {
       return [
         {'tree-anchor': true},
@@ -83,6 +113,7 @@ export default {
         {'tree-hovered': this.isHover}
       ]
     },
+
 
     groupStyle () {
       return {
@@ -94,7 +125,6 @@ export default {
 
   watch: {
     data (newValue) {
-      console.log('watch>data>val:', newValue)
       this.model = newValue
     },
     'model.opened': {
@@ -106,7 +136,6 @@ export default {
   },
 
   created () {
-    console.log('this.data', this.data)
 
     const events = {
       'click': this.handleItemClick,
@@ -117,21 +146,26 @@ export default {
   },
 
   methods: {
+
     handleItemToggle () {
       if (this.isFolder) {
         this.model.opened = !this.model.opened
         this.onItemToggle(this, this.model)
       }
     },
+
+
     handleItemClick (e) {
       if (this.model.disabled) return
       this.model.selected = !this.model.selected
       this.onItemClick(this, this.model, e)
     },
 
+
     handleItemMouseOver () {
       this.isHover = true
     },
+
 
     handleItemMouseOut () {
       this.isHover = false

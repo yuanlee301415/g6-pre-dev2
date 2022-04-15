@@ -6,6 +6,7 @@
   <div class="searchBox">
     <el-input
         v-model.trim="keyword"
+        type="text"
         placeholder="search"
         maxlength="250"
         clearable
@@ -22,20 +23,38 @@
 </template>
 
 <script>
+
 const highlightBgColor = '#ff0'
+
+
 const currentBgColor = '#ff9632'
+
+
 const textCls = '.text'
 
 export default {
   name: "TreeSearch",
   data() {
     return {
+
       tree$ref: null,
+
+
       treeBox$ref: null,
+
+
       keyword: '',
+
+
       lastKeyword: '',
+
+
       matchedElementIds: [],
+
+
       matchedIdx: 0,
+
+
       lastMatchedElementId: ''
     }
   },
@@ -46,6 +65,8 @@ export default {
     },
 
     handleSearch(dir) {
+      if (!this.treeBox$ref) return;
+
       if (this.lastKeyword !== this.keyword) {
         this.lastKeyword = this.keyword
         this.matchedElementIds = []
@@ -53,7 +74,7 @@ export default {
         this.matchedIdx = 0
 
         this.tree$ref.handleRecursionNode(this.tree$ref, (node) => {
-          if (!node) return
+          if (!node.model) return
 
           const $text = node.$el.querySelector(textCls)
           if (!$text) return;
@@ -72,6 +93,7 @@ export default {
         })
       }
 
+
       if (this.lastMatchedElementId) {
         const elm = document.getElementById(this.lastMatchedElementId)
         if (elm) {
@@ -81,15 +103,17 @@ export default {
 
       if (!this.matchedElementIds) return
 
+
       if (dir === 1 && this.matchedIdx === 0) {
         this.matchedIdx = 1
       }
 
+
       this.matchedIdx += dir + this.matchedElementIds.length
+
 
       const currentId = this.matchedElementIds[this.matchedIdx % this.matchedElementIds.length]
       const elm = document.getElementById(currentId)
-
       if (!elm) return;
 
       if (elm.offsetHeight === 0) {
@@ -97,7 +121,10 @@ export default {
         return;
       }
 
+
+
       this.treeBox$ref.scrollTop = elm.offsetTop - this.treeBox$ref.$el.offsetHeight / 2 + 50
+
 
       elm.querySelector(textCls).style.backgroundColor = currentBgColor
 

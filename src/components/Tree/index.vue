@@ -1,26 +1,35 @@
+
+
+
+
 <template>
   <div role="tree" style="height: 100%;overflow: hidden;">
+
     <TreeSearch
       v-if="showSearch"
       ref="modelTreeSearch"
     />
 
-    <div v-if="data" ref="treeBox" :class="classes" role="tree treeBox" onselectstart="return false">
+
+    <div v-if="data" ref="treeBox" :class="classes" class="tree treeBox" onselectstart="return false">
+
       <ul class="tree-container-ul tree-children" role="group">
         <tree-item v-if="loading" :data="initializeLoading()" />
         <template v-else>
-          <tree-item v-for="(child, index) in data"
-                     ref="tree"
-                     :key="index"
-                     :data="child"
-                     :text-field-name="textFieldName"
-                     :value-field-name="valueFieldName"
-                     :children-field-name="childrenFieldName"
-                     :height="sizeHeight"
-                     :parent-item="data"
-                     :on-item-click="onItemClick"
-                     :on-item-toggle="onItemToggle"
-                     :klass="index === data.length-1?'tree-last':''">
+          <tree-item
+              v-for="(child, index) in data"
+              ref="tree"
+              :key="index"
+              :data="child"
+              :text-field-name="textFieldName"
+              :value-field-name="valueFieldName"
+              :children-field-name="childrenFieldName"
+              :height="sizeHeight"
+              :parent-item="data"
+              :on-item-click="onItemClick"
+              :on-item-toggle="onItemToggle"
+              :klass="index === data.length-1?'tree-last':''"
+          >
             <template slot-scope="_">
               <div class="text">
                 <slot :vm="_.vm" :model="_.model">
@@ -31,14 +40,17 @@
           </tree-item>
         </template>
       </ul>
+
     </div>
 
   </div>
 </template>
+
 <script>
 import TreeSearch from '@/components/TreeSearch'
 import ModelTree from "./ModelTree";
 import TreeItem from './TreeItem.vue'
+
 
 let ITEM_HEIGHT_SMALL = 18
 let ITEM_HEIGHT_DEFAULT = 24
@@ -47,28 +59,52 @@ let ITEM_HEIGHT_LARGE = 32
 export default {
   name: 'ModelTee',
 
-  props: {
-    data: {type: Array},
-    size: {type: String, validator: value => ['large', 'small'].indexOf(value) > -1},
-    collapse: {type: Boolean, default: true},
-    textFieldName: {type: String, default: 'displayName'},
-    valueFieldName: {type: String, default: 'name'},
-    childrenFieldName: {type: String, default: 'children'},
-    loadingText: {type: String, default: 'Loading...'},
-    klass: String,
-    timeout: { type: Number, default: 1000},
-    delay: { type: Number, default: 300},
-    showSearch: { type: Boolean, default: true},
-    loaded: { type: Function, default: null}
-  },
-
   components: {
     TreeSearch,
     TreeItem
   },
 
+  props: {
+
+    data: {type: Array, default: null},
+
+
+    size: {type: String, default: null, validator: value => ['large', 'small'].indexOf(value) > -1},
+
+
+    collapse: {type: Boolean, default: true},
+
+
+    textFieldName: {type: String, default: 'displayName'},
+
+
+    valueFieldName: {type: String, default: 'name'},
+
+
+    childrenFieldName: {type: String, default: 'children'},
+
+
+    loadingText: {type: String, default: 'Loading...'},
+
+
+    klass: { type: String, default: null },
+
+
+    timeout: { type: Number, default: 1000},
+
+
+    delay: { type: Number, default: 300},
+
+
+    showSearch: { type: Boolean, default: true},
+
+
+    loaded: { type: Function, default: null}
+  },
+
   data() {
     return {
+
       loading: true
     }
   },
@@ -95,15 +131,10 @@ export default {
   },
 
   created() {
-    console.log('tree>data:', this.data)
-
-    
     this.asyncInitializeData(this.data, () => {
       this.loading = false
       this.loaded && this.loaded()
-      console.log('cb>tree>data:', this.data)
       this.showSearch && setTimeout(() => {
-        console.log('this.$refs[\'modelTreeSearch\']:', this.$refs['modelTreeSearch'])
         this.$refs['modelTreeSearch'].setTreeRef({
           tree: this,
           treeBox: this.$refs['treeBox']
@@ -113,10 +144,11 @@ export default {
   },
 
   methods: {
+
     handleRecursionNode(node, func) {
       if (func(node) !== false) {
         if (node.$children && node.$children.length > 0) {
-          for (let childNode of node.$children) {
+          for (const childNode of node.$children) {
             if (!childNode.disabled) {
               this.handleRecursionNode(childNode, func)
             }
@@ -124,10 +156,13 @@ export default {
         }
       }
     },
+
+
     onItemClick(oriNode, oriItem, e) {
       this.handleSingleSelectItems(oriNode, oriItem)
       this.$emit('item-click', oriNode, oriItem, e)
     },
+
 
     handleSingleSelectItems(oriNode) {
       this.handleRecursionNode(this, node => {
@@ -136,9 +171,11 @@ export default {
       oriNode.model.selected = true
     },
 
+
     onItemToggle(oriNode, oriItem, e) {
       this.$emit('item-toggle', oriNode, oriItem, e)
     },
+
 
     initializeLoading() {
       const item = {}
@@ -148,6 +185,7 @@ export default {
       return this.initializeDataItem(item)
     },
 
+
     initializeDataItem(item) {
       const node = Object.assign(new ModelTree(item, this.textFieldName, this.valueFieldName, this.childrenFieldName, this.collapse), item)
       const self = this
@@ -156,8 +194,9 @@ export default {
         node.opened = true
         node[self.childrenFieldName].push(newItem)
       }
-      return
+      return node
     },
+
 
     asyncInitializeData(items, cb) {
       if (!items) {
@@ -188,6 +227,7 @@ export default {
             }, this.delay)
           }
         }
+
 
         if (level === 0 && idx === length) {
           cb()
