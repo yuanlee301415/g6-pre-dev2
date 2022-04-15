@@ -3,6 +3,7 @@
         <ModelTree
             :data="tree.data"
             :key="tree.key"
+            :show-search="false"
             @item-click="onItemClick"
         />
     </div>
