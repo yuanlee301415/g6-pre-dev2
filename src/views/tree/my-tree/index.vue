@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Tree
+        <ModelTree
             :data="tree.data"
             :key="tree.key"
             @item-click="onItemClick"
@@ -10,12 +10,12 @@
 
 <script>
 import { getCitTreeAPI} from "@/api/tree";
-import Tree from '@/components/Tree'
+import ModelTree from '@/components/ModelTree'
 
 export default {
   name: 'TreeTest',
   components: {
-    Tree,
+    ModelTree,
   },
   data() {
     return {

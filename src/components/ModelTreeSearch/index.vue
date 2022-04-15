@@ -33,7 +33,7 @@ const currentBgColor = '#ff9632'
 const textCls = '.text'
 
 export default {
-  name: "TreeSearch",
+  name: "ModelTreeSearch",
   data() {
     return {
 

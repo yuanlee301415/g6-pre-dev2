@@ -5,7 +5,7 @@
 <template>
   <div role="tree" style="height: 100%;overflow: hidden;">
 
-    <TreeSearch
+    <ModelTreeSearch
       v-if="showSearch"
       ref="modelTreeSearch"
     />
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import TreeSearch from '@/components/TreeSearch'
+import ModelTreeSearch from '@/components/ModelTreeSearch'
 import ModelTree from "./ModelTree";
 import TreeItem from './TreeItem.vue'
 
@@ -60,7 +60,7 @@ export default {
   name: 'ModelTee',
 
   components: {
-    TreeSearch,
+    ModelTreeSearch,
     TreeItem
   },
 
