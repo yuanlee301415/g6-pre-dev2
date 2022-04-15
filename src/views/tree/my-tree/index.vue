@@ -1,5 +1,6 @@
 <template>
     <div>
+      <el-input/>
         <Tree
             :data="tree.data"
             :key="tree.key"
