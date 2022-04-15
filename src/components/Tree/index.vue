@@ -109,12 +109,12 @@ export default {
   },
 
   methods: {
-    handleRecursionNodeNode(node, func) {
+    handleRecursionNode(node, func) {
       if (func(node) !== false) {
         if (node.$children && node.$children.length > 0) {
           for (let childNode of node.$children) {
             if (!childNode.disabled) {
-              this.handleRecursionNodeNode(childNode, func)
+              this.handleRecursionNode(childNode, func)
             }
           }
         }
@@ -126,7 +126,7 @@ export default {
     },
 
     handleSingleSelectItems(oriNode) {
-      this.handleRecursionNodeNode(this, node => {
+      this.handleRecursionNode(this, node => {
         if (node.model) node.model.selected = false
       })
       oriNode.model.selected = true
