@@ -1,3 +1,13 @@
+.treeBox {
+    height: 100%;
+    overflow-y: hidden;
+    position: relative;
+}
+.treeBox.hasSearch {
+    height: calc(100% - 38px);
+}
+
+
 .tree-children, .tree-container-ul, .tree-node {
     display: block;
     margin: 0;

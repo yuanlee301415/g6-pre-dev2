@@ -5,26 +5,31 @@
       ref="modelTreeSearch"
     />
 
-    <div ref="treeBox" :class="classes" role="tree treeBox" onselectstart="return false">
+    <div v-if="data" ref="treeBox" :class="classes" role="tree treeBox" onselectstart="return false">
       <ul class="tree-container-ul tree-children" role="group">
-        <tree-item v-for="(child, index) in data"
-                   :key="index"
-                   :data="child"
-                   :text-field-name="textFieldName"
-                   :value-field-name="valueFieldName"
-                   :children-field-name="childrenFieldName"
-                   :height="sizeHeight"
-                   :parent-item="data"
-                   :on-item-click="onItemClick"
-                   :on-item-toggle="onItemToggle"
-                   :klass="index === data.length-1?'tree-last':''">
-          <template slot-scope="_">
-            <slot :vm="_.vm" :model="_.model">
-              <i class="tree-themeicon" role="presentation" v-if="!_.model.loading"></i>
-              <span v-html="_.model[textFieldName]"></span>
-            </slot>
-          </template>
-        </tree-item>
+        <tree-item v-if="loading" :data="initializeLoading()" />
+        <template v-else>
+          <tree-item v-for="(child, index) in data"
+                     ref="tree"
+                     :key="index"
+                     :data="child"
+                     :text-field-name="textFieldName"
+                     :value-field-name="valueFieldName"
+                     :children-field-name="childrenFieldName"
+                     :height="sizeHeight"
+                     :parent-item="data"
+                     :on-item-click="onItemClick"
+                     :on-item-toggle="onItemToggle"
+                     :klass="index === data.length-1?'tree-last':''">
+            <template slot-scope="_">
+              <div class="text">
+                <slot :vm="_.vm" :model="_.model">
+                  <div v-html="_.model[textFieldName]"></div>
+                </slot>
+              </div>
+            </template>
+          </tree-item>
+        </template>
       </ul>
     </div>
 
