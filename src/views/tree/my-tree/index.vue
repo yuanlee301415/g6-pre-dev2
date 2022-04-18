@@ -14,7 +14,7 @@ import { getCitTreeAPI} from "@/api/tree";
 import ModelTree from '@/components/ModelTree'
 
 export default {
-  name: 'TreeTest',
+  name: 'MyTree',
   components: {
     ModelTree,
   },
