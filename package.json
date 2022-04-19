@@ -1,7 +1,7 @@
 {
-  "name": "g6-pre-dev",
+  "name": "g6-pre-dev2",
   "description": "G6 预研",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve",
