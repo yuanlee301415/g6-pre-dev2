@@ -40,9 +40,14 @@ const routes = [
     {
         path: '/2.tutorial',
         name: '2.Tutorial',
-        redirect: '/2.tutorial/2.elements',
+        redirect: '/2.tutorial/1.example',
         component: Layout,
         children: [
+            {
+                path: '1.example',
+                name: '1.Example',
+                component: () => import('@/views/2.tutorial/1.example')
+            },
             {
                 path: '2.elements',
                 name: '2.Elements',
