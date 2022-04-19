@@ -24,49 +24,49 @@ const routes = [
 
     // GettingStarted
     {
-        path: '/getting-started',
-        name: 'GettingStarted',
-        redirect: '/getting-started',
+        path: '/1.getting-started',
+        name: '1.GettingStarted',
+        redirect: '/1.getting-started',
         component: Layout,
         children: [
             {
                 path: '',
-                component: () => import('@/views/getting-started')
+                component: () => import('@/views/1.getting-started')
             }
         ]
     },
 
     // Tutorial
     {
-        path: '/tutorial',
-        name: 'Tutorial',
-        redirect: '/tutorial/elements',
+        path: '/2.tutorial',
+        name: '2.Tutorial',
+        redirect: '/2.tutorial/2.elements',
         component: Layout,
         children: [
             {
-                path: 'elements',
-                name: 'Elements',
-                component: () => import('@/views/tutorial/elements')
+                path: '2.elements',
+                name: '2.Elements',
+                component: () => import('@/views/2.tutorial/2.elements')
             },
             {
-                path: 'layout/default',
-                name: 'LayoutDefault',
-                component: () => import('@/views/tutorial/layout/default')
+                path: '3.1.layout/default',
+                name: '3.1.LayoutDefault',
+                component: () => import('@/views/2.tutorial/3.layout/default')
             },
             {
-                path: 'layout/force',
-                name: 'LayoutForce',
-                component: () => import('@/views/tutorial/layout/force')
+                path: '3.2.layout/force',
+                name: '3.2.LayoutForce',
+                component: () => import('@/views/2.tutorial/3.layout/force')
             },
             {
-                path: 'behavior',
-                name: 'Behavior',
-                component: () => import('@/views/tutorial/behavior')
+                path: '4.behavior',
+                name: '4.Behavior',
+                component: () => import('@/views/2.tutorial/4.behavior')
             },
             {
-                path: 'plugins',
-                name: 'Plugins',
-                component: () => import('@/views/tutorial/plugins')
+                path: '5.plugins',
+                name: '5.Plugins',
+                component: () => import('@/views/2.tutorial/5.plugins')
             }
         ]
     },
