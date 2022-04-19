@@ -97,6 +97,11 @@ const routes = [
                 path: '3.arrow',
                 name: '3.箭头',
                 component: () => import('@/views/3.middle/3.arrow')
+            },
+            {
+                path: '4.updateElement',
+                name: '4.更新节点或边的样式',
+                component: () => import('@/views/3.middle/4.updateElement')
             }
         ]
     },

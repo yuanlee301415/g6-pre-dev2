@@ -4,9 +4,6 @@
           <nav-bar></nav-bar>
         </div>
         <div class="content">
-            <h1>{{ title }}</h1>
-            <hr>
-            <br>
             <transition name="fade-transform" mode="out-in">
                 <template>
                     <router-view :key="key" />
@@ -25,10 +22,10 @@
     },
     computed: {
       key() {
-        return this.$route.path
+        return this.$route.fullPath
       },
       title() {
-        // console.log('$route:', this.$route)
+        console.log('$route:', this.$route)
         return this.$route.meta.title
       }
     }
@@ -37,9 +34,11 @@
 
 <style scoped>
 .side {
-  width: 250px;
+  position: absolute;
+  width: 300px;
+  height: 100vh;
 }
 .content {
-  padding:20px 20px 20px 300px;
+  padding:20px 20px 20px 320px;
 }
 </style>

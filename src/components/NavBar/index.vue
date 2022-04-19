@@ -46,9 +46,10 @@
 <style scoped>
 .nav-bar {
   width: 100%;
-  padding: 0 20px;
   height: 100%;
-  position: fixed;
+  position: absolute;
+  top: 0;
+  bottom: 0;
   overflow: auto;
   border-right: 1px solid #999;
 }
