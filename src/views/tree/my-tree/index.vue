@@ -5,6 +5,7 @@
             :key="tree.key"
             :show-search="false"
             @item-click="onItemClick"
+            @item-dblclick="onItemDblclick"
         />
     </div>
 </template>
@@ -40,8 +41,10 @@ export default {
       })
     },
     onItemClick(node, item) {
-      console.log('onItemClick>node:', node)
       console.log('onItemClick>item:', item)
+    },
+    onItemDblclick(node, item) {
+      console.warn('onItemDblclick>item:', item)
     }
   }
 }

@@ -26,6 +26,7 @@
           :height= "height"
           :parent-item="model[childrenFieldName]"
           :on-item-click="onItemClick"
+          :on-item-dblclick="onItemDblclick"
           :on-item-toggle="onItemToggle"
           :klass="index === model[childrenFieldName].length-1?'tree-last':''"
       >
@@ -64,10 +65,12 @@ export default {
     height: {type: Number, default: 24},
 
 
-    onItemClick: {type: Function, default: () => function() {}},
+    onItemClick: {type: Function, default: () => null},
+
+    onItemDblclick: {type: Function, default: () => null},
 
 
-    onItemToggle: {type: Function, default: () => function() {}},
+    onItemToggle: {type: Function, default: () => null},
 
 
     klass: String
@@ -139,6 +142,7 @@ export default {
 
     const events = {
       'click': this.handleItemClick,
+      'dblclick': this.handleItemDblclick,
       'mouseover': this.handleItemMouseOver,
       'mouseout': this.handleItemMouseOut
     }
@@ -159,6 +163,15 @@ export default {
       if (this.model.disabled) return
       this.model.selected = !this.model.selected
       this.onItemClick(this, this.model, e)
+      console.log('treeItem>handleItemClick', this.onItemClick)
+
+    },
+
+    handleItemDblclick (e) {
+      if (this.model.disabled) return
+      this.model.selected = !this.model.selected
+      this.onItemDblclick(this, this.model, e)
+      console.log('treeItem>handleItemDblclick', this.onItemDblclick)
     },
 
 
