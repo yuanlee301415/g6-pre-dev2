@@ -161,17 +161,17 @@ export default {
 
     handleItemClick (e) {
       if (this.model.disabled) return
+
       this.model.selected = !this.model.selected
       this.onItemClick(this, this.model, e)
-      console.log('treeItem>handleItemClick', this.onItemClick)
 
     },
 
     handleItemDblclick (e) {
       if (this.model.disabled) return
+
       this.model.selected = !this.model.selected
       this.onItemDblclick(this, this.model, e)
-      console.log('treeItem>handleItemDblclick', this.onItemDblclick)
     },
 
 

@@ -160,14 +160,12 @@ export default {
 
 
     onItemClick(oriNode, oriItem, e) {
-      console.log('tree>onItemClick')
       this.handleSingleSelectItems(oriNode, oriItem)
       this.$emit('item-click', oriNode, oriItem, e)
     },
 
 
     onItemDblclick(oriNode, oriItem, e) {
-      console.warn('tree>onItemDblclick')
       this.handleSingleSelectItems(oriNode, oriItem)
       this.$emit('item-dblclick', oriNode, oriItem, e)
     },
