@@ -40,11 +40,13 @@ export default {
         console.timeEnd('my-tree')
       })
     },
+
     onItemClick(node, item) {
       console.log('onItemClick>item:', item)
     },
+
     onItemDblclick(node, item) {
-      console.warn('onItemDblclick>item:', item)
+      console.log('onItemDblclick>item:', item)
     }
   }
 }
