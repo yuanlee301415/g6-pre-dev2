@@ -76,6 +76,21 @@ const routes = [
         ]
     },
 
+    // Middle
+    {
+        path: '/3.middle',
+        name: '3.Middle',
+        redirect: '/3.middle/1.defaultNode',
+        component: Layout,
+        children: [
+            {
+                path: '1.defaultNode',
+                name: '1.DefaultNode',
+                component: () => import('@/views/3.middle/1.defaultNode')
+            }
+        ]
+    },
+
     // Tree
     {
         path: '/tree',
