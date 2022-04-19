@@ -1,5 +1,5 @@
 <!--
-边总览
+边线箭头
 -->
 <template>
   <div id="mountNode"></div>
