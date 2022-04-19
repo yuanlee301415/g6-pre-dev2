@@ -60,7 +60,7 @@ const routes = [
             },
             {
                 path: '3.2.layout/force',
-                name: '3.1.使用图布局-力导向布局',
+                name: '3.2.使用图布局-力导向布局',
                 component: () => import('@/views/2.tutorial/3.layout/force')
             },
             {
@@ -92,6 +92,11 @@ const routes = [
                 path: '2.defaultEdge',
                 name: '2.边总览',
                 component: () => import('@/views/3.middle/2.defaultEdge')
+            },
+            {
+                path: '3.arrow',
+                name: '3.箭头',
+                component: () => import('@/views/3.middle/3.arrow')
             }
         ]
     },
