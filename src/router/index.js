@@ -87,6 +87,11 @@ const routes = [
                 path: '1.defaultNode',
                 name: '1.DefaultNode',
                 component: () => import('@/views/3.middle/1.defaultNode')
+            },
+            {
+                path: '2.defaultEdge',
+                name: '2.defaultEdge',
+                component: () => import('@/views/3.middle/2.defaultEdge')
             }
         ]
     },
