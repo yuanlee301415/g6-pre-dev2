@@ -43,8 +43,22 @@
   }
 </script>
 
-<style>
-    .router-link-exact-active {
-        background-color: aquamarine;
-    }
+<style scoped>
+.nav-bar {
+  width: 100%;
+  padding: 0 20px;
+  height: 100%;
+  position: fixed;
+  overflow: auto;
+  border-right: 1px solid #999;
+}
+.nav-bar dl {
+  padding:5px 10px;
+}
+.nav-bar dd {
+  padding:10px 0 0 20px;
+}
+.nav-bar .router-link-exact-active {
+  background-color: yellow;
+}
 </style>

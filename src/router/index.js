@@ -22,10 +22,10 @@ const routes = [
         ]
     },
 
-    // GettingStarted
+    // 快速上手
     {
         path: '/1.getting-started',
-        name: '1.GettingStarted',
+        name: '1.快速上手',
         redirect: '/1.getting-started',
         component: Layout,
         children: [
@@ -36,61 +36,61 @@ const routes = [
         ]
     },
 
-    // Tutorial
+    // 入门教程
     {
         path: '/2.tutorial',
-        name: '2.Tutorial',
+        name: '2.入门教程',
         redirect: '/2.tutorial/1.example',
         component: Layout,
         children: [
             {
                 path: '1.example',
-                name: '1.Example',
+                name: '1.绘制案例',
                 component: () => import('@/views/2.tutorial/1.example')
             },
             {
                 path: '2.elements',
-                name: '2.Elements',
+                name: '2.元素及其配置',
                 component: () => import('@/views/2.tutorial/2.elements')
             },
             {
                 path: '3.1.layout/default',
-                name: '3.1.LayoutDefault',
+                name: '3.1.使用图布局-默认布局',
                 component: () => import('@/views/2.tutorial/3.layout/default')
             },
             {
                 path: '3.2.layout/force',
-                name: '3.2.LayoutForce',
+                name: '3.1.使用图布局-力导向布局',
                 component: () => import('@/views/2.tutorial/3.layout/force')
             },
             {
                 path: '4.behavior',
-                name: '4.Behavior',
+                name: '4.图的交互',
                 component: () => import('@/views/2.tutorial/4.behavior')
             },
             {
                 path: '5.plugins',
-                name: '5.Plugins',
+                name: '5.插件与工具',
                 component: () => import('@/views/2.tutorial/5.plugins')
             }
         ]
     },
 
-    // Middle
+    // 核心概念
     {
         path: '/3.middle',
-        name: '3.Middle',
+        name: '3.核心概念',
         redirect: '/3.middle/1.defaultNode',
         component: Layout,
         children: [
             {
                 path: '1.defaultNode',
-                name: '1.DefaultNode',
+                name: '1.节点总览',
                 component: () => import('@/views/3.middle/1.defaultNode')
             },
             {
                 path: '2.defaultEdge',
-                name: '2.defaultEdge',
+                name: '2.边总览',
                 component: () => import('@/views/3.middle/2.defaultEdge')
             }
         ]

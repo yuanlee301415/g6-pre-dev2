@@ -1,6 +1,8 @@
 <template>
     <div id="main" class="main">
-        <nav-bar></nav-bar>
+        <div class="side">
+          <nav-bar></nav-bar>
+        </div>
         <div class="content">
             <h1>{{ title }}</h1>
             <hr>
@@ -32,3 +34,12 @@
     }
   }
 </script>
+
+<style scoped>
+.side {
+  width: 250px;
+}
+.content {
+  padding:20px 20px 20px 300px;
+}
+</style>
