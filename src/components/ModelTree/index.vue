@@ -27,6 +27,7 @@
               :height="sizeHeight"
               :parent-item="data"
               :on-item-click="onItemClick"
+              :on-item-dblclick="onItemDblclick"
               :on-item-toggle="onItemToggle"
               :klass="index === data.length-1?'tree-last':''"
           >
@@ -161,6 +162,12 @@ export default {
     onItemClick(oriNode, oriItem, e) {
       this.handleSingleSelectItems(oriNode, oriItem)
       this.$emit('item-click', oriNode, oriItem, e)
+    },
+
+
+    onItemDblclick(oriNode, oriItem, e) {
+      this.handleSingleSelectItems(oriNode, oriItem)
+      this.$emit('item-dblclick', oriNode, oriItem, e)
     },
 
 
