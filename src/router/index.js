@@ -124,6 +124,12 @@ const routes = [
                         name: '4.updateElement',
                         meta: { title: '4.更新节点或边的样式' },
                         component: () => import('@/views/manual/3.middle/4.updateElement')
+                    },
+                    {
+                        path: '5.visible',
+                        name: '5.Visible',
+                        meta: { title: '5.显示与隐藏' },
+                        component: () => import('@/views/manual/3.middle/5.visible')
                     }
                 ]
             }
