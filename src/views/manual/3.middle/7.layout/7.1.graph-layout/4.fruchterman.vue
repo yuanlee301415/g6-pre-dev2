@@ -17,7 +17,7 @@ export default {
       height: scrollHeight,
       fitView: true,
       layout: {
-        // fruchterman - 力导向的一种
+        // fruchterman - 力导向的一种布局
         type: 'fruchterman',
         // gravity: 20, // 可选 - 重力的大小，影响布局的紧凑程度
         // speed: 2, // 可选 - 每次迭代节点移动的速度。速度太快可能会导致强烈震荡

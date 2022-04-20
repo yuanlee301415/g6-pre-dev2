@@ -17,7 +17,7 @@ export default {
       height: scrollHeight,
       fitView: true,
       layout: {
-        // force - 经典力导向
+        // force - 经典力导向布局
         type: 'force'
       }
     });
