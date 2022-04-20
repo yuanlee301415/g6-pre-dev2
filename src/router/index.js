@@ -142,6 +142,75 @@ const routes = [
                         name: '6.2.MultiLine',
                         meta: { title: '6.2.多条边-processParallelEdges' },
                         component: () => import('@/views/manual/3.middle/6.2.multi-line')
+                    },
+                    {
+                        path: '7.layout',
+                        name: '7.Layout',
+                        meta: { title: '7.图布局' },
+                        component: () => import('@/views/manual/3.middle/7.layout'),
+                        redirect: '/3.middle/7.layout/7.1.graph-layout/random',
+                        children: [
+                            {
+                                path: '7.1.graph-layout/random',
+                                name: '7.1-1.Random',
+                                meta: { title: '7.1-1.随机布局' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/1.random'),
+                            },
+                            {
+                                path: '7.1.graph-layout/gForce',
+                                name: '7.1-2.GForce',
+                                meta: { title: '7.1-2.GForce' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/2.gForce'),
+                            },
+                            {
+                                path: '7.1.graph-layout/force',
+                                name: '7.1-3.Force',
+                                meta: { title: '7.1-3.Force' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/3.force'),
+                            },
+                            {
+                                path: '7.1.graph-layout/fruchterman',
+                                name: '7.1-4.Fruchterman',
+                                meta: { title: '7.1-4.Fruchterman' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/4.fruchterman'),
+                            },
+                            {
+                                path: '7.1.graph-layout/circular',
+                                name: '7.1-5.Circular',
+                                meta: { title: '7.1-5.Circular' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/5.circular'),
+                            },
+                            {
+                                path: '7.1.graph-layout/radial',
+                                name: '7.1-6.Radial',
+                                meta: { title: '7.1-6.Radial' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/6.radial'),
+                            },
+                            {
+                                path: '7.1.graph-layout/MDS',
+                                name: '7.1-7.MDS',
+                                meta: { title: '7.1-7.MDS' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/7.mds'),
+                            },
+                            {
+                                path: '7.1.graph-layout/concentric',
+                                name: '7.1-8.Concentric',
+                                meta: { title: '7.1-8.Concentric' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/8.concentric'),
+                            },
+                            {
+                                path: '7.1.graph-layout/grid',
+                                name: '7.1-9.Grid',
+                                meta: { title: '7.1-9.Grid' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/9.grid'),
+                            },
+                            {
+                                path: '7.1.graph-layout/comboForce',
+                                name: '7.1-10.ComboForce',
+                                meta: { title: '7.1-10.ComboForce' },
+                                component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/10.comboForce'),
+                            }
+                        ]
                     }
                 ]
             }
