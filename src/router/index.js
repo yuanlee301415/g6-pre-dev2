@@ -103,25 +103,25 @@ const routes = [
                 children: [
                     {
                         path: '1.defaultNode',
-                        name: '1.defaultNode',
+                        name: '1.DefaultNode',
                         meta: { title: '1.节点总览' },
                         component: () => import('@/views/manual/3.middle/1.defaultNode')
                     },
                     {
                         path: '2.defaultEdge',
-                        name: '2.defaultEdge',
+                        name: '2.DefaultEdge',
                         meta: { title: '2.边总览' },
                         component: () => import('@/views/manual/3.middle/2.defaultEdge')
                     },
                     {
                         path: '3.arrow',
-                        name: '3.arrow',
-                        meta: { title: '2.箭头' },
+                        name: '3.Arrow',
+                        meta: { title: '3.箭头' },
                         component: () => import('@/views/manual/3.middle/3.arrow')
                     },
                     {
                         path: '4.updateElement',
-                        name: '4.updateElement',
+                        name: '4.UpdateElement',
                         meta: { title: '4.更新节点或边的样式' },
                         component: () => import('@/views/manual/3.middle/4.updateElement')
                     },
@@ -130,6 +130,18 @@ const routes = [
                         name: '5.Visible',
                         meta: { title: '5.显示与隐藏' },
                         component: () => import('@/views/manual/3.middle/5.visible')
+                    },
+                    {
+                        path: '6.1.multi-line',
+                        name: '6.1.MultiLine',
+                        meta: { title: '6.1.多条边-贝塞尔曲线' },
+                        component: () => import('@/views/manual/3.middle/6.1.multi-line')
+                    },
+                    {
+                        path: '6.2.multi-line',
+                        name: '6.2.MultiLine',
+                        meta: { title: '6.2.多条边-processParallelEdges' },
+                        component: () => import('@/views/manual/3.middle/6.2.multi-line')
                     }
                 ]
             }
