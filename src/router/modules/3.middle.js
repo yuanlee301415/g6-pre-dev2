@@ -140,58 +140,73 @@ const middle = {
             redirect: '/3.middle/3.states/1.default-behavior/1.drag-canvas',
             children: [
                 {
-                    path: '1.default-behavior/1.drag-canvas',
-                    name: '3.1-1.DragCanvas',
-                    meta: {title: '1.拖拽画布'},
-                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/1.drag-canvas'),
+                    path: '1.default-behavior',
+                    name: '1.DefaultBehavior',
+                    meta: {title: '1.内置的 Behavior'},
+                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior'),
+                    redirect: '/3.middle/3.states/1.default-behavior/1.drag-canvas',
+                    children: [
+                        {
+                            path: '1.drag-canvas',
+                            name: '3.1-1.DragCanvas',
+                            meta: {title: '1.拖拽画布'},
+                            component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/1.drag-canvas'),
+                        },
+                        {
+                            path: '2.zoom-canvas',
+                            name: '3.1-2.ZoomCanvas',
+                            meta: {title: '2.缩放画布'},
+                            component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/2.zoom-canvas'),
+                        },
+                        {
+                            path: '3.drag-node',
+                            name: '3.1-3.DragNode',
+                            meta: {title: '3.拖拽节点'},
+                            component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/3.drag-node'),
+                        },
+                        {
+                            path: '4.click-select',
+                            name: '3.1-4.ClickSelect',
+                            meta: {title: '4.选中节点'},
+                            component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/4.click-select'),
+                        },
+                        {
+                            path: '5.tooltip',
+                            name: '3.1-5.Tooltip',
+                            meta: {title: '5.Tooltip'},
+                            component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/5.tooltip'),
+                        },
+                        {
+                            path: '6.edge-tooltip',
+                            name: '3.1-6.EdgeTooltip',
+                            meta: {title: '6.EdgeTooltip'},
+                            component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/6.edge-tooltip'),
+                        },
+                        {
+                            path: '7.activate-relations',
+                            name: '3.1-7.ActivateRelations',
+                            meta: {title: '7.突出显示该节点的关系'},
+                            component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/7.activate-relations'),
+                        },
+                        {
+                            path: '8.brush-select',
+                            name: '3.1-8.BrushSelect',
+                            meta: {title: '8.框选节点'},
+                            component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/8.brush-select'),
+                        },
+                        {
+                            path: '9.create-edge',
+                            name: '3.1-9.CreateEdge',
+                            meta: {title: '9.创建边'},
+                            component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/9.create-edge'),
+                        }
+                    ]
                 },
                 {
-                    path: '1.default-behavior/2.zoom-canvas',
-                    name: '3.1-2.ZoomCanvas',
-                    meta: {title: '2.缩放画布'},
-                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/2.zoom-canvas'),
-                },
-                {
-                    path: '1.default-behavior/3.drag-node',
-                    name: '3.1-3.DragNode',
-                    meta: {title: '3.拖拽节点'},
-                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/3.drag-node'),
-                },
-                {
-                    path: '1.default-behavior/4.click-select',
-                    name: '3.1-4.ClickSelect',
-                    meta: {title: '4.选中节点'},
-                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/4.click-select'),
-                },
-                {
-                    path: '1.default-behavior/5.tooltip',
-                    name: '3.1-5.Tooltip',
-                    meta: {title: '5.Tooltip'},
-                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/5.tooltip'),
-                },
-                {
-                    path: '1.default-behavior/6.edge-tooltip',
-                    name: '3.1-6.EdgeTooltip',
-                    meta: {title: '6.EdgeTooltip'},
-                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/6.edge-tooltip'),
-                },
-                {
-                    path: '1.default-behavior/7.activate-relations',
-                    name: '3.1-7.ActivateRelations',
-                    meta: {title: '7.突出显示该节点的关系'},
-                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/7.activate-relations'),
-                },
-                {
-                    path: '1.default-behavior/8.brush-select',
-                    name: '3.1-8.BrushSelect',
-                    meta: {title: '8.框选节点'},
-                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/8.brush-select'),
-                },
-                {
-                    path: '1.default-behavior/9.create-edge',
-                    name: '3.1-9.CreateEdge',
-                    meta: {title: '9.创建边'},
-                    component: () => import('@/views/manual/3.middle/3.states/1.defaultBehavior/9.create-edge'),
+                    path: '2.custom-behavior',
+                    name: '2.CustomBehavior',
+                    meta: {title: '2.自定义交互 Behavior'},
+                    component: () => import('@/views/manual/3.middle/3.states/2.custom-behavior'),
                 }
             ]
         }
