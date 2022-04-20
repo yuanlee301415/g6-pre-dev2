@@ -1,5 +1,5 @@
 <template>
-  <div id="mountNode"></div>
+  <div id="container" style="width: 800px;height: 600px;border: 1px solid green;"></div>
 </template>
 
 <script>
@@ -11,11 +11,12 @@ export default {
   mounted() {
     G6.Util.processParallelEdges(data.edges);
 
+    const container = document.getElementById('container');
+    const { scrollWidth, scrollHeight } = container
     const graph = new G6.Graph({
-      container: 'mountNode', // 指定挂载容器
-      width: 800, // 图的宽度
-      height: 500, // 图的高度
-      fitView: true,
+      container,
+      width: scrollWidth,
+      height: scrollHeight,
       layout: {
         type: 'random'
       },

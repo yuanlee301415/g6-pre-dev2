@@ -32,7 +32,7 @@ export default {
         container,
         width: scrollWidth,
         height: scrollHeight,
-        // fitView: true,
+        fitView: true,
         // fitViewPadding: [20, 40, 50, 20],
         defaultNode: {
           size: 30,
