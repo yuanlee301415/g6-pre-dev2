@@ -88,7 +88,4 @@
   overflow: auto;
   border-right: 1px solid #999;
 }
-.nav-bar .router-link-exact-active {
-  background-color: yellow;
-}
 </style>
