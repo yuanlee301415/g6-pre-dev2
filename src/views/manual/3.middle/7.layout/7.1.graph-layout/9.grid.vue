@@ -17,7 +17,7 @@ export default {
       height: scrollHeight,
       fitView: true,
       layout: {
-        // grid - 网络布局
+        // grid - 网格布局
         type: 'grid'
       }
     });

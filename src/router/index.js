@@ -201,7 +201,7 @@ const routes = [
                             {
                                 path: '7.1.graph-layout/grid',
                                 name: '7.1-9.Grid',
-                                meta: { title: '7.1-9.网络布局' },
+                                meta: { title: '7.1-9.网格布局' },
                                 component: () => import('@/views/manual/3.middle/7.layout/7.1.graph-layout/9.grid'),
                             },
                             {

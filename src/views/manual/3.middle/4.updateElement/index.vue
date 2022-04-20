@@ -42,11 +42,22 @@ export default {
 
     handleClick() {
       console.log(this.graph)
-      // [Vue warn]: Error in v-on handler: "TypeError: Cannot read properties of undefined (reading 'getModel')"
-      // Todo: Error
-      this.graph.updateItem(this.data[0], {
+
+      const nodes = this.graph.getNodes()
+      const firstNode = nodes[0]
+      console.log(firstNode)
+
+      firstNode && this.graph.updateItem(firstNode, {
         style: {
-          stroke: 'blue'
+          fill: 'red',
+          stroke: 'green',
+          lineWidth: 3
+        },
+        label: 'N0',
+        labelCfg: {
+          style: {
+            fill: '#fff'
+          }
         }
       })
     }
