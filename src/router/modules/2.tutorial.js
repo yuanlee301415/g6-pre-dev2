@@ -1,9 +1,9 @@
 // 入门教程
 const tutorial = {
-    path: '/2.tutorial',
+    path: '2.tutorial',
     name: '2.Tutorial',
     meta: {title: '2.入门教程'},
-    redirect: '/2.tutorial/1.example',
+    redirect: '/manual/2.tutorial/1.example',
     component: () => import('@/views/manual/2.tutorial'),
     children: [
         {

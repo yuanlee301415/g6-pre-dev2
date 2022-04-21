@@ -1,9 +1,9 @@
 // 核心概念
 const middle = {
-    path: '/3.middle',
+    path: '3.middle',
     name: '3.Middle',
     meta: {title: '3.核心概念'},
-    redirect: '/3.middle/1.elements/1.defaultNode',
+    redirect: '/manual/3.middle/1.elements/1.defaultNode',
     component: () => import('@/views/manual/3.middle/1.elements'),
     children: [
         {
@@ -11,7 +11,7 @@ const middle = {
             name: '1.Elements',
             meta: {title: '1.图布局'},
             component: () => import('@/views/manual/3.middle/1.elements'),
-            redirect: '/3.middle/1.elements/1.defaultNode',
+            redirect: '/manual/3.middle/1.elements/1.defaultNode',
             children: [
                 {
                     path: '1.defaultNode',
@@ -62,7 +62,7 @@ const middle = {
             name: '2.Layout',
             meta: {title: '2.图布局'},
             component: () => import('@/views/manual/3.middle/2.layout'),
-            redirect: '/3.middle/2.layout/2.1.graph-layout/random',
+            redirect: '/manual/3.middle/2.layout/2.1.graph-layout/random',
             children: [
                 {
                     path: '2.1.graph-layout/random',
@@ -137,7 +137,7 @@ const middle = {
             name: '3.States',
             meta: {title: '3.交互与事件'},
             component: () => import('@/views/manual/3.middle/3.states'),
-            redirect: '/3.middle/3.states/1.default-behavior/1.drag-canvas',
+            redirect: '/manual/3.middle/3.states/1.default-behavior/1.drag-canvas',
             children: [
                 {
                     path: '1.default-behavior',
