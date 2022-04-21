@@ -16,9 +16,17 @@ export default {
       width: scrollWidth,
       height: scrollHeight,
       fitView: true,
+      defaultEdge: {
+        type: 'line',
+        style: {
+          endArrow: {
+            path: G6.Arrow.vee(5, 6, 3),
+            d: 3
+          }
+        }
+      },
       layout: {
-        // 随机布局
-        type: 'random'
+        type: 'gForce'
       },
       // 交互模式 Mode
       modes: {
@@ -39,10 +47,12 @@ export default {
     graph.on('nodeselectchange', e => {
       console.log('nodeselectchange>e:', e)
 
-      console.log('selected>item::', e.target)
+      console.log('target', e.target)
+
+      if (!e.target) return // 事件源不是节点
 
       const model = e.target.getModel()
-      console.log('selected>model:', model)
+      console.log('model:', model)
 
       console.log('selectedItems:', e.selectedItems)
       console.log('select:', e.select)

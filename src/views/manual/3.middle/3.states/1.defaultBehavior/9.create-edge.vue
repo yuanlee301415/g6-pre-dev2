@@ -20,14 +20,13 @@ export default {
         type: 'line',
         style: {
           endArrow: {
-            path: G6.Arrow.vee(5, 8, 10), // 使用内置箭头路径函数，参数为箭头的 宽度、长度、偏移量（默认为 0，与 d 对应）
-            d: 15
-          },
+            path: G6.Arrow.vee(5, 6, 3),
+            d: 3
+          }
         }
       },
       layout: {
-        // 随机布局
-        type: 'random'
+        type: 'gForce'
       },
       // 交互模式 Mode
       modes: {

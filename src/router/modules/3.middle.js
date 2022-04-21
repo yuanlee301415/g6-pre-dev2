@@ -9,7 +9,7 @@ const middle = {
         {
             path: '1.elements',
             name: '1.Elements',
-            meta: {title: '1.图布局'},
+            meta: {title: '1.图元素'},
             component: () => import('@/views/manual/3.middle/1.elements'),
             redirect: '/manual/3.middle/1.elements/1.defaultNode',
             children: [

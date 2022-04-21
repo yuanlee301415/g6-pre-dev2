@@ -33,9 +33,17 @@ export default {
         width: scrollWidth,
         height: scrollHeight,
         fitView: true,
+        defaultEdge: {
+          type: 'line',
+          style: {
+            endArrow: {
+              path: G6.Arrow.vee(5, 6, 3),
+              d: 3
+            }
+          }
+        },
         layout: {
-          // 随机布局
-          type: 'random'
+          type: 'gForce'
         },
         // 交互模式 Mode
         modes: {
@@ -46,7 +54,7 @@ export default {
           /**
            * 默认模式
            */
-          edit: ['drag-canvas', 'zoom-canvas', 'click-select'],
+          edit: ['drag-canvas', 'zoom-canvas', 'click-select', 'drag-node'],
         }
       });
       graph.data(data)

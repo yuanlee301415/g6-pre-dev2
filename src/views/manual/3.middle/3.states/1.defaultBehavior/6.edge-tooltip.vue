@@ -16,9 +16,17 @@ export default {
       width: scrollWidth,
       height: scrollHeight,
       fitView: true,
+      defaultEdge: {
+        type: 'line',
+        style: {
+          endArrow: {
+            path: G6.Arrow.vee(5, 6, 3),
+            d: 3
+          }
+        }
+      },
       layout: {
-        // 随机布局
-        type: 'random'
+        type: 'gForce'
       },
       // 交互模式 Mode
       modes: {
