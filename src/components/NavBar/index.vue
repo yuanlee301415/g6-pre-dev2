@@ -1,13 +1,11 @@
 <template>
-    <div class="nav-bar">
-      <div style="padding: 10px;">
-        <NavItem
-            v-for="item of items"
-            :key="item.name"
-            :data="item"
-        />
-      </div>
-    </div>
+    <nav>
+      <NavItem
+          v-for="item of items"
+          :key="item.name"
+          :data="item"
+      />
+    </nav>
 </template>
 
 <script>
@@ -34,22 +32,27 @@
 
     methods: {
       initItems(routes, list = []) {
-        function IIFE(routes, items, parentName = '') {
+        function IIFE(routes, items, _parentName = '', _fullPath = '', _depth = 0) {
           for (const route of routes) {
             if (route.hidden === true) continue
 
-            const {name, meta } = route
+            const {name, meta, path } = route
+            const fullPath = _fullPath + (_fullPath ? '/' : '') + path
+            const depth = _depth + (name ? 1 : 0)
             if (name && meta && meta.title) {
               list.push({
                 name,
                 title: meta.title,
-                parentName,
+                path,
+                _parentName,
+                _fullPath: fullPath,
+                _depth: depth,
                 children: []
               })
             }
 
             if (route.children) {
-              IIFE(route.children, list, route.name || parentName)
+              IIFE(route.children, list, route.name || _parentName, fullPath, depth)
             }
           }
         }
@@ -60,18 +63,16 @@
         list.forEach((_) => {
           parentMap.set(_.name, _);
         });
-        // console.log('list:\n', JSON.stringify(list, null, 2))
 
         const items = []
         list.forEach((_) => {
-          const parent = parentMap.get(_.parentName);
+          const parent = parentMap.get(_._parentName);
           if (parent) {
             parent.children.push(_);
           } else {
             items.push(_);
           }
         });
-
         return items
       }
     }
@@ -79,7 +80,7 @@
 </script>
 
 <style scoped>
-.nav-bar {
+nav {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -87,5 +88,6 @@
   bottom: 0;
   overflow: auto;
   border-right: 1px solid #999;
+  background-color: #001529;
 }
 </style>

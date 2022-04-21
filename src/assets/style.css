@@ -10,6 +10,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-.nav-bar .router-link-exact-active {
-    background-color: yellow;
+.side nav .router-link-exact-active {
+    background-color: #1890ff;
+    color: #fff;
 }
