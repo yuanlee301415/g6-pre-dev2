@@ -213,6 +213,12 @@ const middle = {
                     name: '3.Mode',
                     meta: {title: '3.交互模式'},
                     component: () => import('@/views/manual/3.middle/3.states/3.mode'),
+                },
+                {
+                    path: '4.state',
+                    name: '4.State',
+                    meta: {title: '4.状态'},
+                    component: () => import('@/views/manual/3.middle/3.states/4.state'),
                 }
             ]
         }
