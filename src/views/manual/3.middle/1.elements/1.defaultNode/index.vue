@@ -8,7 +8,7 @@
 
 <script>
 import G6 from "@antv/g6";
-import data from './data.json'
+import data from '../../data.json'
 
 export default {
   name: "DefaultNode",
