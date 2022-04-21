@@ -219,6 +219,12 @@ const middle = {
                     name: '4.State',
                     meta: {title: '4.状态'},
                     component: () => import('@/views/manual/3.middle/3.states/4.state'),
+                },
+                {
+                    path: '5.animation',
+                    name: '5.Animation',
+                    meta: {title: '5.动画'},
+                    component: () => import('@/views/manual/3.middle/3.states/5.animation'),
                 }
             ]
         }
