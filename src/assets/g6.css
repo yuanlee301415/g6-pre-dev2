@@ -8,3 +8,16 @@
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: rgb(174, 174, 174) 0px 0px 10px;
 }
+
+/*Menu*/
+.g6-component-contextmenu {
+    width: 100px;
+}
+.g6-component-contextmenu li {
+    line-height: 30px;
+    cursor: pointer;
+}
+.g6-component-contextmenu li:hover {
+    color: darkgreen;
+    opacity: 0.6;
+}

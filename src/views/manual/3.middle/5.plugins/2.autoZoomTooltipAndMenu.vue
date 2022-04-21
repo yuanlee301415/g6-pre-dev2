@@ -7,7 +7,7 @@ import G6 from "@antv/g6";
 import data from './data.json'
 
 export default {
-  name: "Menu",
+  name: "AutoZoomTooltipAndMenu",
   mounted() {
     const container = document.getElementById('container');
     const {scrollWidth, scrollHeight} = container
@@ -56,7 +56,7 @@ export default {
         }
       },
       layout: {
-        type: 'gForce'
+        type: 'random'
       },
       // 交互模式 Mode
       modes: {
@@ -71,6 +71,26 @@ export default {
     });
     graph.data(data)
     graph.render()
+
+    autoZoom(graph, 'g6-component-tooltip')
+    autoZoom(graph, 'g6-component-contextmenu')
+
+    /**
+     * 自动绽放：tooltip 或 menu
+     * @param graph
+     * @param pluginDOMClassName - 插件 DOM class name
+     */
+    function autoZoom(graph, pluginDOMClassName) {
+      graph.on('wheelzoom', (e) => {
+        e.stopPropagation();
+        const tooltips = Array.from(document.getElementsByClassName(pluginDOMClassName));
+        tooltips.forEach((tooltip) => {
+          if (tooltip && tooltip.style) {
+            tooltip.style.transform = `scale(${graph.getZoom()})`;
+          }
+        });
+      });
+    }
   }
 }
 </script>

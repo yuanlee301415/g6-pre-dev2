@@ -237,9 +237,15 @@ const middle = {
             children: [
                 {
                     path: '1.menu',
-                    name: '3.5-1.Menu',
+                    name: '3.5.1.Menu',
                     meta: {title: '1.右键菜单'},
                     component: () => import('@/views/manual/3.middle/5.plugins/1.menu'),
+                },
+                {
+                    path: '2.autoZoomTooltipAndMenu',
+                    name: '3.5.2.autoZoomTooltipAndMenu',
+                    meta: {title: '2.自动缩放Tooltip&Menu'},
+                    component: () => import('@/views/manual/3.middle/5.plugins/2.autoZoomTooltipAndMenu'),
                 }
             ]
         }
