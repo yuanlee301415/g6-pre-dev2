@@ -26,7 +26,7 @@ export default {
     const menu = new G6.Menu({
       // offsetX: container.offsetLeft * -1 + 15,
       // offsetY: container.offsetTop * -1 + 15,
-      getContent(evt) {
+      getContent() {
         return `<ul>
       <li id='show-node'>显示节点</li>
       <li id='hide-node'>隐藏节点</li>

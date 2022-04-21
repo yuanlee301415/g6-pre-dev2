@@ -37,7 +37,7 @@ export default {
         }
         graph.setItemState(item, 'active', true)
       },
-      onCanvasClick(e) {
+      onCanvasClick() {
         // shouldUpdate 可以复写
         if (this.shouldUpdate) {
           this.removeNodesState()
