@@ -2,8 +2,10 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/layout'
 
-import manual from './modules/manual'
 import tree from './modules/tree'
+
+import manual from './modules/manual/index'
+import api from './modules/api/index'
 
 export const routes = [
     // Home
@@ -25,6 +27,9 @@ export const routes = [
 
     // 教程
     manual,
+
+    // API
+    api,
 
     // Tree
     tree
