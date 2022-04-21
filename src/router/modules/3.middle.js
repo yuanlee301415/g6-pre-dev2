@@ -207,6 +207,12 @@ const middle = {
                     name: '2.CustomBehavior',
                     meta: {title: '2.自定义交互 Behavior'},
                     component: () => import('@/views/manual/3.middle/3.states/2.custom-behavior'),
+                },
+                {
+                    path: '3.mode',
+                    name: '3.Mode',
+                    meta: {title: '3.交互模式'},
+                    component: () => import('@/views/manual/3.middle/3.states/3.mode'),
                 }
             ]
         }
