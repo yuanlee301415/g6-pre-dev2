@@ -112,7 +112,14 @@ const api = {
                             component: () => import('@/views/api/1.graphFunc/5.item/6.show_hide_Item'),
                         }
                     ]
-                }
+                },
+
+                {
+                    path: '6.find',
+                    name: '1.6.Find',
+                    meta: {title: '6.查找元素'},
+                    component: () => import('@/views/api/1.graphFunc/6.find')
+                },
             ]
         }
     ]
