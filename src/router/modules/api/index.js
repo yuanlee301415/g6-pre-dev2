@@ -156,6 +156,71 @@ const api = {
                     component: () => import('@/views/api/1.graphFunc/11.destroy')
                 },
             ]
+        },
+
+        {
+            path: '3.item',
+            name: '3.Item',
+            meta: {title: '3.元素方法和配置'},
+            component: () => import('@/views/api/3.item'),
+            children: [
+                {
+                    path: '1.itemMethods',
+                    name: '3.1.ItemMethods',
+                    meta: {title: '1.元素实例方法'},
+                    component: () => import('@/views/api/3.item/1.itemMethods'),
+                    children: [
+                        {
+                            path: '1.update',
+                            name: '3.1-1.Update',
+                            meta: {title: '1.更新元素'},
+                            component: () => import('@/views/api/3.item/1.itemMethods/1.update')
+                        },
+
+                        {
+                            path: '2.destroy',
+                            name: '3.1-2.destroy',
+                            meta: {title: '2.销毁元素'},
+                            component: () => import('@/views/api/3.item/1.itemMethods/2.destroy')
+                        },
+
+                        {
+                            path: '3.general',
+                            name: '3.1-3.General',
+                            meta: {title: '3.通用方法'},
+                            component: () => import('@/views/api/3.item/1.itemMethods/3.general')
+                        },
+
+                        {
+                            path: '4.state',
+                            name: '3.1-4.State',
+                            meta: {title: '4.状态'},
+                            component: () => import('@/views/api/3.item/1.itemMethods/4.state')
+                        },
+
+                        {
+                            path: '5.style',
+                            name: '3.1-5.Style',
+                            meta: {title: '5.样式'},
+                            component: () => import('@/views/api/3.item/1.itemMethods/5.style')
+                        },
+                    ]
+                },
+
+                {
+                    path: '2.nodeMethods',
+                    name: '3.2.NodeMethods',
+                    meta: {title: '2.Node 实例方法'},
+                    component: () => import('@/views/api/3.item/2.nodeMethods'),
+                },
+
+                {
+                    path: '3.edgeMethods',
+                    name: '3.3.EdgeMethods',
+                    meta: {title: '3.Edge 实例方法'},
+                    component: () => import('@/views/api/3.item/3.edgeMethods'),
+                }
+            ]
         }
     ]
 }
