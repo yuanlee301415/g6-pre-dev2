@@ -148,6 +148,13 @@ const api = {
                     meta: {title: '10.导出图片'},
                     component: () => import('@/views/api/1.graphFunc/10.download')
                 },
+
+                {
+                    path: '11.destroy',
+                    name: '11.Destroy',
+                    meta: {title: '11.清除&销毁画布'},
+                    component: () => import('@/views/api/1.graphFunc/11.destroy')
+                },
             ]
         }
     ]
