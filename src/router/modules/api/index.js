@@ -67,6 +67,51 @@ const api = {
                     name: '1.4.Transform',
                     meta: {title: '4.视口操作'},
                     component: () => import('@/views/api/1.graphFunc/4.transform')
+                },
+
+                {
+                    path: '5.item',
+                    name: '1.5.Item',
+                    meta: {title: '5.元素操作'},
+                    component: () => import('@/views/api/1.graphFunc/5.item'),
+                    children: [
+                        {
+                            path: '1.addItem',
+                            name: '1.5-1.AddItem',
+                            meta: {title: '1.新增元素'},
+                            component: () => import('@/views/api/1.graphFunc/5.item/1.addItem'),
+                        },
+                        {
+                            path: '2.removeItem',
+                            name: '1.5-2.RemoveItem',
+                            meta: {title: '2.删除元素'},
+                            component: () => import('@/views/api/1.graphFunc/5.item/2.removeItem'),
+                        },
+                        {
+                            path: '3.updateItem',
+                            name: '1.5-3.UpdateItem',
+                            meta: {title: '3.更新元素'},
+                            component: () => import('@/views/api/1.graphFunc/5.item/3.updateItem'),
+                        },
+                        {
+                            path: '4.node',
+                            name: '1.5-4.Node',
+                            meta: {title: '4.Node'},
+                            component: () => import('@/views/api/1.graphFunc/5.item/4.node'),
+                        },
+                        {
+                            path: '5.edge',
+                            name: '1.5-5.Edge',
+                            meta: {title: '5.edge'},
+                            component: () => import('@/views/api/1.graphFunc/5.item/5.edge'),
+                        },
+                        {
+                            path: '6.show_hide_Item',
+                            name: '1.5-6.ShowHideItem',
+                            meta: {title: '6.ShowHideItem'},
+                            component: () => import('@/views/api/1.graphFunc/5.item/6.show_hide_Item'),
+                        }
+                    ]
                 }
             ]
         }
