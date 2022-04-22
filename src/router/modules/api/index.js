@@ -60,6 +60,13 @@ const api = {
                     name: '1.3.Get_set',
                     meta: {title: '3.获取/设置'},
                     component: () => import('@/views/api/1.graphFunc/3.get_set')
+                },
+
+                {
+                    path: '4.transform',
+                    name: '1.4.Transform',
+                    meta: {title: '4.视口操作'},
+                    component: () => import('@/views/api/1.graphFunc/4.transform')
                 }
             ]
         }

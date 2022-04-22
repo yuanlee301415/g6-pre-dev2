@@ -1,23 +1,14 @@
 <template>
   <div>
     <div id="container" style="width: 800px;height: 600px;border: 1px solid green;"></div>
-    <dl>
-      <dt>Get</dt>
-      <dd>
-        <button @click="handleGetContainer">GetContainer</button>
-        <button @click="handleGetGroup">GetGroup</button>
-        <button @click="handleGetMaxZoom">GetMaxZoom</button>
-        <button @click="handleGetMinZoom">GetMinZoom</button>
-        <button @click="handleGetWidth">GetWidth</button>
-        <button @click="handleGetHeight">GetHeight</button>
-      </dd>
-    </dl>
-    <dl>
-      <dt>Set</dt>
-      <dd>
 
-      </dd>
-    </dl>
+    <button @click="handleGetContainer">GetContainer</button>
+    <button @click="handleGetGroup">GetGroup</button>
+    <button @click="handleGetMaxZoom">GetMaxZoom</button>
+    <button @click="handleGetMinZoom">GetMinZoom</button>
+    <button @click="handleGetWidth">GetWidth</button>
+    <button @click="handleGetHeight">GetHeight</button>
+
   </div>
 </template>
 
