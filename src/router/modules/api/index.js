@@ -120,6 +120,13 @@ const api = {
                     meta: {title: '6.查找元素'},
                     component: () => import('@/views/api/1.graphFunc/6.find')
                 },
+
+                {
+                    path: '7.state',
+                    name: '1.7.State',
+                    meta: {title: '7.元素状态'},
+                    component: () => import('@/views/api/1.graphFunc/7.state')
+                },
             ]
         }
     ]
