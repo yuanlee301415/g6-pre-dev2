@@ -127,6 +127,13 @@ const api = {
                     meta: {title: '7.元素状态'},
                     component: () => import('@/views/api/1.graphFunc/7.state')
                 },
+
+                {
+                    path: '8.on_off',
+                    name: '1.8.On_off',
+                    meta: {title: '8.事件绑定&解绑'},
+                    component: () => import('@/views/api/1.graphFunc/8.on_off')
+                },
             ]
         }
     ]
