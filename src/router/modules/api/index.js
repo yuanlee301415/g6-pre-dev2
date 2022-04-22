@@ -141,6 +141,13 @@ const api = {
                     meta: {title: '9.calculation'},
                     component: () => import('@/views/api/1.graphFunc/9.calculation')
                 },
+
+                {
+                    path: '10.download',
+                    name: '10.Download',
+                    meta: {title: '10.导出图片'},
+                    component: () => import('@/views/api/1.graphFunc/10.download')
+                },
             ]
         }
     ]
