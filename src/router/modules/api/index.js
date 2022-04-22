@@ -134,6 +134,13 @@ const api = {
                     meta: {title: '8.事件绑定&解绑'},
                     component: () => import('@/views/api/1.graphFunc/8.on_off')
                 },
+
+                {
+                    path: '9.calculation',
+                    name: '1.9.Calculation',
+                    meta: {title: '9.calculation'},
+                    component: () => import('@/views/api/1.graphFunc/9.calculation')
+                },
             ]
         }
     ]
