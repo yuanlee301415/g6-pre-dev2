@@ -39,6 +39,6 @@
   height: 100vh;
 }
 .content {
-  padding:20px 20px 20px 320px;
+  margin-left: 300px;
 }
 </style>

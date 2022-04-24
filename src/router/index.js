@@ -32,7 +32,20 @@ export const routes = [
     api,
 
     // Tree
-    tree
+    tree,
+
+    {
+        path: '/resource-view',
+        component: Layout,
+        children: [
+            {
+                path: '',
+                name: 'ResourceView',
+                meta: {title: '资源视图'},
+                component: () => import('@/views/resource-view')
+            }
+        ]
+    }
 ]
 
 Vue.use(Router)
