@@ -88,6 +88,6 @@ nav {
   bottom: 0;
   overflow: auto;
   border-right: 1px solid #999;
-  background-color: #001529;
+  background-color: #324157;
 }
 </style>
