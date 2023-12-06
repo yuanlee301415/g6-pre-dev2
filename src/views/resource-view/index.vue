@@ -9,22 +9,21 @@
           @item-dblclick="onItemDblclick"
       />
     </div>
-    <div class="right">
-      <div ref="graphContainer" style="height: 600px;">
 
-      </div>
+    <div class="right">
+      <div ref="graphContainer" style="height: 600px;"/>
     </div>
+
   </div>
 </template>
 
 <script>
 import G6 from "@antv/g6";
-import { getCitTreeAPI} from "@/api/tree";
+import { getCitTreeAPI, getTopologyAPI} from "@/api";
 import ModelTree from '@/components/ModelTree'
-import data from './data.json'
-import Topology, { NODE_TYPE, EDGE_TYPE} from './Topology'
+import Topology, { NODE_TYPE} from './Topology'
 
-let topology
+let graph
 
 export default {
   name: 'ResourceView',
@@ -36,37 +35,44 @@ export default {
       tree: {
         data: null
       },
-      graph: {
-        data: null
+      topology: {
+        id: 'default',
       }
     }
   },
   created() {
-    this.data = data
     this.getCitTree()
+    this.getTopology()
   },
   mounted() {
     const graphContainer = this.$refs['graphContainer']
-    topology = new Topology(G6, {
+    graph = new Topology(G6, {
       container: graphContainer,
       width: graphContainer.scrollWidth,
       height: graphContainer.scrollHeight
     })
-    console.log({ topology })
-    this.getData()
+    console.log({ graph })
   },
   methods: {
     getCitTree() {
       getCitTreeAPI().then(res => {
         if (res.code !== 0) return
-
         this.tree.data = res.data
         this.tree.key = Math.random()
       })
     },
 
-    getData() {
-      topology.initData(data)
+    getTopology() {
+      getTopologyAPI(this.topology.id).then(res => {
+        if (res.code !== 0) return
+        return res.data
+      }).then(data => {
+        this.initGraphData(data)
+      })
+    },
+
+    initGraphData(data) {
+      graph.initData(data)
     },
 
     onItemClick(node, item) {
@@ -75,7 +81,7 @@ export default {
 
     onItemDblclick(node, item) {
       console.log('onItemDblclick>item:', item)
-      topology.addItem(NODE_TYPE, {
+      graph.addItem(NODE_TYPE, {
         id: item.id.toString(),
         label: item.displayName
       })

@@ -6,3 +6,10 @@ export function getCitTreeAPI () {
     method: 'get'
   })
 }
+
+export function getTopologyAPI (id) {
+  return request({
+    url: `/topology/${id}`,
+    method: 'get'
+  })
+}
