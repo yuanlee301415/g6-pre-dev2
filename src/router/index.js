@@ -2,8 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Layout from '@/layout'
 
-import tree from './modules/tree'
-
 import manual from './modules/manual/index'
 import api from './modules/api/index'
 
@@ -30,9 +28,6 @@ export const routes = [
 
     // API
     api,
-
-    // Tree
-    tree,
 
     {
         path: '/resource-view',
