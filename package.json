@@ -4,6 +4,7 @@
   "version": "0.8.0",
   "private": true,
   "scripts": {
+    "server": "json-server --watch server/db.json --routes server/routes.json --port 9701",
     "dev": "vue-cli-service serve",
     "build:test": "vue-cli-service build --mode test",
     "build:prod": "vue-cli-service build --mode production",
@@ -28,6 +29,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "json-server": "^0.17.4",
     "script-ext-html-webpack-plugin": "^2.1.4",
     "terser-webpack-plugin": "^3.0.6",
     "vue-template-compiler": "^2.6.11"
