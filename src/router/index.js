@@ -30,14 +30,14 @@ export const routes = [
     api,
 
     {
-        path: '/resource-view',
+        path: '/topology',
         component: Layout,
         children: [
             {
                 path: '',
-                name: 'ResourceView',
-                meta: {title: '资源视图'},
-                component: () => import('@/views/resource-view')
+                name: 'TopologyView',
+                meta: {title: '模型拓扑'},
+                component: () => import('@/views/topology')
             }
         ]
     }

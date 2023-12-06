@@ -11,7 +11,10 @@
     </div>
 
     <div class="right">
-      <div ref="graphContainer" style="height: 600px;"/>
+      <el-select v-model="topology.id">
+        <el-option value="default" label="默认拓扑图"></el-option>
+      </el-select>
+      <div ref="graphContainer" style="height: 600px;border: 1px solid #999;"/>
     </div>
 
   </div>
@@ -26,7 +29,7 @@ import Topology, { NODE_TYPE} from './Topology'
 let graph
 
 export default {
-  name: 'ResourceView',
+  name: 'Topology',
   components: {
     ModelTree,
   },
