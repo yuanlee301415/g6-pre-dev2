@@ -187,45 +187,84 @@
       "nodes": [
         {
           "id": "0",
-          "label": "0"
+          "label": "Node-Def-0"
         },
         {
           "id": "1",
-          "label": "1"
+          "label": "Node-Def-1"
         },
         {
           "id": "2",
-          "label": "2"
+          "label": "Node-Def-2"
         },
         {
           "id": "3",
-          "label": "3"
-        },
-        {
-          "id": "4",
-          "label": "4"
+          "label": "Node-Def-3"
         }
       ],
       "edges": [
         {
           "source": "0",
           "target": "1",
-          "label": "E0-1"
+          "label": "默认-1"
         },
         {
           "source": "0",
           "target": "2",
-          "label": "E0-2"
+          "label": "默认-1"
         },
         {
           "source": "1",
           "target": "2",
-          "label": "E1-2"
+          "label": "默认-1"
         },
         {
           "source": "1",
           "target": "3",
-          "label": "E1-3"
+          "label": "默认-1"
+        }
+      ]
+    },
+    {
+      "id": "k8s",
+      "nodes": [
+        {
+          "id": "0",
+          "label": "Node-K8S-0"
+        },
+        {
+          "id": "1",
+          "label": "Node-K8S-1"
+        },
+        {
+          "id": "2",
+          "label": "Node-K8S-2"
+        },
+        {
+          "id": "3",
+          "label": "Node-K8S-3"
+        }
+      ],
+      "edges": [
+        {
+          "source": "0",
+          "target": "1",
+          "label": "K8S-1"
+        },
+        {
+          "source": "0",
+          "target": "2",
+          "label": "K8S-2"
+        },
+        {
+          "source": "1",
+          "target": "2",
+          "label": "K8S-2"
+        },
+        {
+          "source": "1",
+          "target": "3",
+          "label": "K8S-3"
         }
       ]
     }
