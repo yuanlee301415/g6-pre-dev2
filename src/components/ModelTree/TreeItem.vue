@@ -9,7 +9,7 @@
       role="modelTreeItem"
   >
     <i class="tree-icon tree-ocl" role="presentation" @click="handleItemToggle"/>
-    <div :class="anchorClasses" v-on="events">
+    <div :class="anchorClasses" v-on="events" draggable="true">
       <slot :vm="this" :model="model">
         <i v-if="!model.loading" class="tree-themeicon" role="presentation"/>
         <span v-html="model[textFieldName]"/>
@@ -29,6 +29,7 @@
           :on-item-dblclick="onItemDblclick"
           :on-item-toggle="onItemToggle"
           :klass="index === model[childrenFieldName].length-1?'tree-last':''"
+          :on-dragend="onDragend"
       >
         <template slot-scope="_">
           <slot :vm="_.vm" :model="_.model">
@@ -71,6 +72,8 @@ export default {
 
 
     onItemToggle: {type: Function, default: () => null},
+
+    onDragend: {type: Function, default: () => null},
 
 
     klass: String
@@ -144,12 +147,16 @@ export default {
       'click': this.handleItemClick,
       'dblclick': this.handleItemDblclick,
       'mouseover': this.handleItemMouseOver,
-      'mouseout': this.handleItemMouseOut
+      'mouseout': this.handleItemMouseOut,
+      'dragend': this.handleDragend,
     }
     this.events = events
   },
 
   methods: {
+    handleDragend(e) {
+      this.onDragend(this, this.model, e)
+    },
 
     handleItemToggle () {
       if (this.isFolder) {

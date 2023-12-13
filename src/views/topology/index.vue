@@ -7,6 +7,7 @@
           :show-search="false"
           @item-click="onItemClick"
           @item-dblclick="onItemDblclick"
+          @dragend="onDragend"
       />
     </div>
 
@@ -88,10 +89,24 @@ export default {
         id: item.id.toString(),
         label: item.displayName
       })
+    },
+
+    onDragend(node, item, e) {
+      console.log('onDragend>args:', arguments)
+      const point = graph.graph.getPointByClient(e.x, e.y)
+      console.log('onDragend>point:', point)
+
+      graph.addItem(NODE_TYPE, {
+        id: item.name,
+        label: item.displayName,
+        x: point.x,
+        y: point.y
+      })
     }
   }
 }
 </script>
+
 <style scoped>
 .resourceView {
   position: relative;

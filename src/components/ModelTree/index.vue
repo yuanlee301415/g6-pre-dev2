@@ -29,6 +29,7 @@
               :on-item-click="onItemClick"
               :on-item-dblclick="onItemDblclick"
               :on-item-toggle="onItemToggle"
+              :on-dragend="onDragend"
               :klass="index === data.length-1?'tree-last':''"
           >
             <template slot-scope="_">
@@ -162,6 +163,12 @@ export default {
     onItemClick(oriNode, oriItem, e) {
       this.handleSingleSelectItems(oriNode, oriItem)
       this.$emit('item-click', oriNode, oriItem, e)
+    },
+
+    onDragend(oriNode, oriItem, e) {
+      // console.log('onDragend:', arguments)
+      // this.handleSingleSelectItems(oriNode, oriItem)
+      this.$emit('dragend', oriNode, oriItem, e)
     },
 
 

@@ -38,7 +38,8 @@ export default class Topology {
     addItem(type, data) {
         if (![NODE_TYPE, EDGE_TYPE].includes(type)) return
 
-        this.data[`${type}s`].push(data)
-        this.graph.read(this.data)
+        // this.data[`${type}s`].push(data)
+        // this.graph.read(this.data)
+        this.graph.addItem(type, data)
     }
 }
