@@ -186,85 +186,64 @@
       "id": "default",
       "nodes": [
         {
-          "id": "0",
-          "label": "Node-Def-0"
+          "id": "rac",
+          "label": "集群"
         },
         {
-          "id": "1",
-          "label": "Node-Def-1"
+          "id": "kvm",
+          "label": "KVM虚拟化"
         },
         {
-          "id": "2",
-          "label": "Node-Def-2"
+          "id": "service",
+          "label": "标准应用"
         },
         {
-          "id": "3",
-          "label": "Node-Def-3"
+          "id": "database",
+          "label": "数据库"
+        },
+        {
+          "id": "host",
+          "label": "主机"
+        },
+        {
+          "id": "line",
+          "label": "线路"
+        },
+        {
+          "id": "network",
+          "label": "网络设备"
         }
       ],
       "edges": [
         {
-          "source": "0",
-          "target": "1",
-          "label": "默认-1"
+          "source": "rac",
+          "target": "kvm",
+          "label": "rac_集群->kvm_KVM虚拟化"
         },
         {
-          "source": "0",
-          "target": "2",
-          "label": "默认-1"
+          "source": "rac",
+          "target": "service",
+          "label": "rac_集群->service_标准应用"
         },
         {
-          "source": "1",
-          "target": "2",
-          "label": "默认-1"
+          "source": "rac",
+          "target": "database",
+          "label": "rac_集群->database_数据库"
         },
         {
-          "source": "1",
-          "target": "3",
-          "label": "默认-1"
-        }
-      ]
-    },
-    {
-      "id": "k8s",
-      "nodes": [
-        {
-          "id": "0",
-          "label": "Node-K8S-0"
+          "source": "rac",
+          "target": "host",
+          "label": "rac_集群->host_主机"
         },
         {
-          "id": "1",
-          "label": "Node-K8S-1"
+          "source": "rac",
+          "target": "line",
+          "label": "rac_集群->line_线路"
         },
         {
-          "id": "2",
-          "label": "Node-K8S-2"
-        },
-        {
-          "id": "3",
-          "label": "Node-K8S-3"
-        }
-      ],
-      "edges": [
-        {
-          "source": "0",
-          "target": "1",
-          "label": "K8S-1"
-        },
-        {
-          "source": "0",
-          "target": "2",
-          "label": "K8S-2"
-        },
-        {
-          "source": "1",
-          "target": "2",
-          "label": "K8S-2"
-        },
-        {
-          "source": "1",
-          "target": "3",
-          "label": "K8S-3"
+          "source": "rac",
+          "target": "network",
+          "label": "rac_集群->network_网络设备"
         }
       ]
     }
