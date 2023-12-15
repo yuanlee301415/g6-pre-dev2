@@ -3,6 +3,23 @@ export const EDGE_TYPE = 'edge'
 
 function init(G6, options) {
     const { container, width, height } = options
+    const menu = new G6.Menu({
+        // offsetX: container.offsetLeft * -1 + 15,
+        // offsetY: container.offsetTop * -1 + 15,
+        getContent() {
+            return `<ul>
+      <li id='show-node'>显示节点</li>
+      <li id='hide-node'>隐藏节点</li>
+    </ul>`;
+        },
+        handleMenuClick(target, item) {
+            console.log({
+                id: target.id,
+                target,
+                item
+            })
+        },
+    });
     const graph = new G6.Graph({
         container,
         width,
@@ -22,7 +39,8 @@ function init(G6, options) {
         },
         modes: {
             default: ['drag-canvas', 'zoom-canvas', 'click-select', 'drag-node']
-        }
+        },
+        plugins: [menu],
     })
     return graph
 }
