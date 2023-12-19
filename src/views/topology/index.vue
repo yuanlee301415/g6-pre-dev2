@@ -15,7 +15,7 @@
       <el-select v-model="topology.id">
         <el-option value="default" label="默认拓扑图"></el-option>
       </el-select>
-      <div ref="graphContainer" style="height: 600px;border: 1px solid #999;"/>
+      <div ref="graphContainer" style="height: 600px;border: 1px solid #999;position: relative;"/>
     </div>
 
   </div>
@@ -27,7 +27,7 @@ import { getCitTreeAPI, getTopologyAPI} from "@/api";
 import ModelTree from '@/components/ModelTree'
 import Topology, { NODE_TYPE} from './Topology'
 
-let graph
+let topology
 
 export default {
   name: 'Topology',
@@ -46,16 +46,16 @@ export default {
   },
   created() {
     this.getCitTree()
-    this.getTopology()
   },
   mounted() {
-    const graphContainer = this.$refs['graphContainer']
-    graph = new Topology(G6, {
-      container: graphContainer,
-      width: graphContainer.scrollWidth,
-      height: graphContainer.scrollHeight
+    const container = this.$refs['graphContainer']
+    topology = new Topology(G6, {
+      container: container,
+      width: container.scrollWidth,
+      height: container.scrollHeight
     })
-    console.log({ graph })
+    console.log(topology)
+    this.getTopology()
   },
   methods: {
     getCitTree() {
@@ -76,7 +76,7 @@ export default {
     },
 
     initGraphData(data) {
-      graph.initData(data)
+      topology.initData(data)
     },
 
     onItemClick(node, item) {
@@ -85,7 +85,7 @@ export default {
 
     onItemDblclick(node, item) {
       console.log('onItemDblclick>item:', item)
-      graph.addItem(NODE_TYPE, {
+      topology.addItem(NODE_TYPE, {
         id: item.id.toString(),
         label: item.displayName
       })
@@ -93,10 +93,10 @@ export default {
 
     onDragend(node, item, e) {
       console.log('onDragend>args:', arguments)
-      const point = graph.graph.getPointByClient(e.x, e.y)
+      const point = topology.graph.getPointByClient(e.x, e.y)
       console.log('onDragend>point:', point)
 
-      graph.addItem(NODE_TYPE, {
+      topology.addItem(NODE_TYPE, {
         id: item.name,
         label: item.displayName,
         x: point.x,
