@@ -10,7 +10,7 @@ export default class Topology {
     }
 
     init() {
-        const { container, width, height } = this.config
+        const {container, width, height} = this.config
         const graph = new this.G6.Graph({
             container,
             width,
@@ -115,42 +115,56 @@ export default class Topology {
 
     initToolbar() {
         const toolbar = new this.G6.ToolBar({
+            position: { x: this.config.width - 400 - 10, y: 10 },
             getContent: () => {
                 const outDiv = document.createElement('div');
-                outDiv.style.width = '280px';
+                outDiv.style.width = '400px';
                 outDiv.innerHTML = `<ul class="g6_custom_toolbar">
                     <li code="zoomOut"><button>ZoomOut</button></li>
-                    <li code="zoomInt"><button>zoomInt</button></li>
-                    <li><input type="text" id="g6_keyword" style="width:50px;"></li>
-                    <li code="search">           
-                        <button>Search</button>
-                    </li>
+                    <li code="zoomIn"><button>zoomIn</button></li>
+                    <li code="realZoom"><button>1:1</button></li>
+                    <li code="autoZoom"><button>Auto</button></li>
+                    <li><input type="text" id="g6_keyword" style="width:80px;"></li>
+                    <li code="search"><button>Search</button></li>
                   </ul>`
                 return outDiv
             },
             handleClick: (code) => {
                 switch (code) {
                     case 'search':
-                        this.search()
+                        this.search(document.getElementById('g6_keyword').value)
                         break
                     case 'zoomOut':
+                        console.log('zoomOut')
+                        toolbar.zoomOut()
                         break
                     case 'zoomIn':
+                        toolbar.zoomIn()
                         break
+                    case 'realZoom':
+                        toolbar.realZoom()
+                        break
+                    case 'autoZoom':
+                        toolbar.autoZoom()
+                        break
+                    default:
+                        // 其他操作保持默认不变
+                        toolbar.handleDefaultOperator(code)
                 }
             },
         });
         return toolbar
     }
 
-    search() {
-        const keyword = document.getElementById('g6_keyword').value.trim()
+    search(keyword) {
+        console.log('search>keyword:', keyword)
         const nodes = this.graph.getNodes().map(_ => _.getModel())
         const edges = this.graph.getEdges().map(_ => _.getModel())
+        keyword = keyword ? keyword.trim().toLowerCase() : ''
         nodes.forEach(_ => {
             this.graph.clearItemStates(_.id, 'selected')
             if (!keyword) return
-            if (_.label.includes(keyword)) {
+            if (_.label.toLowerCase().includes(keyword)) {
                 console.log('selected>node:', _)
                 this.graph.setItemState(_.id, 'selected', true);
             }
@@ -158,7 +172,7 @@ export default class Topology {
         edges.forEach(_ => {
             this.graph.clearItemStates(_.id, 'selected')
             if (!keyword) return
-            if (_.label.includes(keyword)) {
+            if (_.label.toLowerCase().includes(keyword)) {
                 console.log('selected>edge:', _)
                 this.graph.setItemState(_.id, 'selected', true);
             }
