@@ -115,18 +115,16 @@ export default class Topology {
 
     initToolbar() {
         const toolbar = new this.G6.ToolBar({
-            position: { x: this.config.width - 400 - 10, y: 10 },
+            className: 'g6-custom-toolbar',
             getContent: () => {
-                const outDiv = document.createElement('div');
-                outDiv.style.width = '400px';
-                outDiv.innerHTML = `<ul class="g6_custom_toolbar">
+                const outDiv = document.createElement('ul');
+                outDiv.innerHTML = `
                     <li code="zoomOut"><button>ZoomOut</button></li>
                     <li code="zoomIn"><button>zoomIn</button></li>
                     <li code="realZoom"><button>1:1</button></li>
                     <li code="autoZoom"><button>Auto</button></li>
-                    <li><input type="text" id="g6_keyword" style="width:80px;"></li>
-                    <li code="search"><button>Search</button></li>
-                  </ul>`
+                    <li><input type="text" id="g6_keyword" style="width:100px;"></li>
+                    <li code="search"><button>Search</button></li>`
                 return outDiv
             },
             handleClick: (code) => {

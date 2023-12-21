@@ -12,8 +12,9 @@
     </div>
 
     <div class="right">
-      <el-select v-model="topology.id">
+      <el-select v-model="topology.id" @change="handleChangeGraph">
         <el-option value="default" label="默认拓扑图"></el-option>
+        <el-option value="all" label="所有节点"></el-option>
       </el-select>
       <div ref="graphContainer" style="height: 600px;border: 1px solid #999;position: relative;"/>
     </div>
@@ -102,6 +103,10 @@ export default {
         x: point.x,
         y: point.y
       })
+    },
+
+    handleChangeGraph() {
+      this.getTopology()
     }
   }
 }
