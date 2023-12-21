@@ -246,6 +246,269 @@
           "label": "rac_集群->network_网络设备"
         }
       ]
+    },
+    {
+      "id": "all",
+      "nodes": [
+        {
+          "id": "root",
+          "label": "根节点"
+        },
+        {
+          "id": "tmoRoot",
+          "label": "CI项"
+        },
+        {
+          "id": "rac",
+          "label": "集群"
+        },
+        {
+          "id": "OracleRac",
+          "label": "OracleRac"
+        },
+        {
+          "id": "kvm",
+          "label": "KVM虚拟化"
+        },
+        {
+          "id": "KVMHost",
+          "label": "KVMHost"
+        },
+        {
+          "id": "service",
+          "label": "标准应用"
+        },
+        {
+          "id": "POP3",
+          "label": "POP3"
+        },
+        {
+          "id": "JVM",
+          "label": "JVM"
+        },
+        {
+          "id": "HTTP",
+          "label": "HTTP"
+        },
+        {
+          "id": "DNS",
+          "label": "DNS"
+        },
+        {
+          "id": "FTP",
+          "label": "FTP"
+        },
+        {
+          "id": "database",
+          "label": "数据库"
+        },
+        {
+          "id": "MySQL",
+          "label": "MySQL"
+        },
+        {
+          "id": "DM",
+          "label": "DM"
+        },
+        {
+          "id": "MSSQL",
+          "label": "MSSQL"
+        },
+        {
+          "id": "host",
+          "label": "主机"
+        },
+        {
+          "id": "LinuxServer",
+          "label": "LinuxServer"
+        },
+        {
+          "id": "Windows",
+          "label": "Windows"
+        },
+        {
+          "id": "IBMAixServer",
+          "label": "IBMAixServer"
+        },
+        {
+          "id": "SolarisServer",
+          "label": "SolarisServer"
+        },
+        {
+          "id": "HPUnixServer",
+          "label": "HPUnixServer"
+        },
+        {
+          "id": "line",
+          "label": "线路"
+        },
+        {
+          "id": "Line",
+          "label": "Line"
+        },
+        {
+          "id": "network",
+          "label": "网络设备"
+        },
+        {
+          "id": "H3C_AP",
+          "label": "H3C_AP"
+        },
+        {
+          "id": "RG_WS",
+          "label": "RG_WS"
+        },
+        {
+          "id": "DC_AP",
+          "label": "DC_AP"
+        },
+        {
+          "id": "cmoRoot",
+          "label": "CI附加项"
+        }
+      ],
+      "edges": [
+        {
+          "source": "root",
+          "target": "tmoRoot",
+          "label": "根节点->CI项"
+        },
+        {
+          "source": "root",
+          "target": "rac",
+          "label": "根节点->集群"
+        },
+        {
+          "source": "root",
+          "target": "OracleRac",
+          "label": "根节点->OracleRac"
+        },
+        {
+          "source": "root",
+          "target": "kvm",
+          "label": "根节点->KVM虚拟化"
+        },
+        {
+          "source": "root",
+          "target": "KVMHost",
+          "label": "根节点->KVMHost"
+        },
+        {
+          "source": "root",
+          "target": "service",
+          "label": "根节点->标准应用"
+        },
+        {
+          "source": "root",
+          "target": "POP3",
+          "label": "根节点->POP3"
+        },
+        {
+          "source": "root",
+          "target": "JVM",
+          "label": "根节点->JVM"
+        },
+        {
+          "source": "root",
+          "target": "HTTP",
+          "label": "根节点->HTTP"
+        },
+        {
+          "source": "root",
+          "target": "DNS",
+          "label": "根节点->DNS"
+        },
+        {
+          "source": "root",
+          "target": "FTP",
+          "label": "根节点->FTP"
+        },
+        {
+          "source": "root",
+          "target": "database",
+          "label": "根节点->数据库"
+        },
+        {
+          "source": "root",
+          "target": "MySQL",
+          "label": "根节点->MySQL"
+        },
+        {
+          "source": "root",
+          "target": "DM",
+          "label": "根节点->DM"
+        },
+        {
+          "source": "root",
+          "target": "MSSQL",
+          "label": "根节点->MSSQL"
+        },
+        {
+          "source": "root",
+          "target": "host",
+          "label": "根节点->主机"
+        },
+        {
+          "source": "root",
+          "target": "LinuxServer",
+          "label": "根节点->LinuxServer"
+        },
+        {
+          "source": "root",
+          "target": "Windows",
+          "label": "根节点->Windows"
+        },
+        {
+          "source": "root",
+          "target": "IBMAixServer",
+          "label": "根节点->IBMAixServer"
+        },
+        {
+          "source": "root",
+          "target": "SolarisServer",
+          "label": "根节点->SolarisServer"
+        },
+        {
+          "source": "root",
+          "target": "HPUnixServer",
+          "label": "根节点->HPUnixServer"
+        },
+        {
+          "source": "root",
+          "target": "line",
+          "label": "根节点->线路"
+        },
+        {
+          "source": "root",
+          "target": "Line",
+          "label": "根节点->Line"
+        },
+        {
+          "source": "root",
+          "target": "network",
+          "label": "根节点->网络设备"
+        },
+        {
+          "source": "root",
+          "target": "H3C_AP",
+          "label": "根节点->H3C_AP"
+        },
+        {
+          "source": "root",
+          "target": "RG_WS",
+          "label": "根节点->RG_WS"
+        },
+        {
+          "source": "root",
+          "target": "DC_AP",
+          "label": "根节点->DC_AP"
+        },
+        {
+          "source": "root",
+          "target": "cmoRoot",
+          "label": "根节点->CI附加项"
+        }
+      ]
     }
   ]
 }
