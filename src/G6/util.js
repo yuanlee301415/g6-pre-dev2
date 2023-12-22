@@ -7,29 +7,32 @@ export function createConfig({ container, width, height }) {
         height,
         fitView: true,
         layout: {
-            type: 'gForce'
+            type: 'gForce',
+            animate: true,
+            maxIteration: 100,
         },
         defaultNode: {
             style: {
-                fill: '#10b981',
-                lineWidth: 0
+                lineWidth: 0,
+                fill: '#10b981'
             },
             labelCfg: {
-                position: 'bottom',
                 style: {
                     fill: '#333',
                     fontSize: 7
-                }
+                },
+                position: 'bottom'
             }
         },
         defaultEdge: {
-            type: 'quadratic',
+            type: 'line',
             style: {
-                stroke: '#10b981',
-                lineWidth: 1,
+                stroke: '#1d4ed8',
+                lineWidth: 0.5,
+                opacity: 0.5,
                 endArrow: {
-                    path: G6.Arrow.vee(5, 6, 3),
-                    d: 3
+                    path: G6.Arrow.vee(3, 2, 1),
+                    d: 1
                 }
             },
             labelCfg: {
@@ -39,53 +42,50 @@ export function createConfig({ container, width, height }) {
                 },
             }
         },
-        modes: {
-            default: ['drag-canvas', 'zoom-canvas', 'drag-node',
-                'activate-relations', // 当鼠标移到某节点时，突出显示该节点以及与其直接关联的节点和连线
-            ]
-        },
         nodeStateStyles: {
             active: {
                 fill: '#10b981',
                 lineWidth: 0,
                 'text-shape': {
-                    fill: '#10b981'
+                    fill: '#111'
                 }
             },
             inactive: {
-                opacity: 0.8,
+                opacity: 0.6,
                 'text-shape': {
-                    opacity: 0.8
+                    opacity: 0.6
                 }
             },
             hit: {
-                lineWidth: 0,
-                fill: '#f59e0b',
+                fill: '#f59e0b'
+            }
+        },
+        edgeStateStyles: {
+            active: {
+                stroke: '#1d4ed8',
+                lineWidth: 0.5,
+                'text-shape': {
+                    fill: '#333'
+                }
+            },
+            inactive: {
+                opacity: 0.6,
+                'text-shape': {
+                    opacity: 0.6
+                }
+            },
+            hit: {
+                stroke: '#f59e0b',
+                lineWidth: 1,
                 'text-shape': {
                     fill: '#f59e0b'
                 }
             }
         },
-        edgeStateStyles: {
-            active: {
-                stroke: '#10b981',
-                'text-shape': {
-                    fill: '#10b981'
-                }
-            },
-            inactive: {
-                opacity: 0.8,
-                'text-shape': {
-                    opacity: 0.8
-                }
-            },
-            hit: {
-                lineWidth: 1,
-                stroke: '#f59e0b',
-                'text-shape': {
-                    fill: '#f59e0b'
-                }
-            }
+        modes: {
+            default: ['drag-canvas', 'zoom-canvas', 'drag-node',
+                'activate-relations', // 当鼠标移到某节点时，突出显示该节点以及与其直接关联的节点和连线
+            ]
         },
     }
 }

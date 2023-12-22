@@ -117,12 +117,6 @@ export default class TopologyStore {
         const nodes = this.graph.getNodes().map(_ => _.getModel())
         const edges = this.graph.getEdges().map(_ => _.getModel())
         this.graph.removeBehaviors('activate-relations')
-        nodes.forEach(_ => {
-            this.graph.clearItemStates(_, 'hit')
-        })
-        edges.forEach(_ => {
-            this.graph.clearItemStates(_, 'hit')
-        })
         this.graph.read(new GraphData({
             nodes: [...nodes, ...graphData.nodes],
             edges: [...edges, ...graphData.edges],
