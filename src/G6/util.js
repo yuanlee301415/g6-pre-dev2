@@ -41,13 +41,7 @@ export function createConfig({ container, width, height }) {
         },
         modes: {
             default: ['drag-canvas', 'zoom-canvas', 'drag-node', 'click-select',
-                {
-                    /**
-                     * 当鼠标移到某节点时，突出显示该节点以及与其直接关联的节点和连线；
-                     */
-                    type: 'activate-relations',
-                    trigger: 'click'
-                }
+                'activate-relations', // 当鼠标移到某节点时，突出显示该节点以及与其直接关联的节点和连线
             ]
         },
         nodeStateStyles: {
@@ -63,6 +57,13 @@ export function createConfig({ container, width, height }) {
                 'text-shape': {
                     opacity: 0.8
                 }
+            },
+            hit: {
+                lineWidth: 0,
+                fill: '#f59e0b',
+                'text-shape': {
+                    fill: '#f59e0b'
+                }
             }
         },
         edgeStateStyles: {
@@ -76,6 +77,13 @@ export function createConfig({ container, width, height }) {
                 opacity: 0.8,
                 'text-shape': {
                     opacity: 0.8
+                }
+            },
+            hit: {
+                lineWidth: 1,
+                stroke: '#f59e0b',
+                'text-shape': {
+                    fill: '#f59e0b'
                 }
             }
         },

@@ -54,7 +54,7 @@ export default class TopologyStore {
             handleClick: (code) => {
                 switch (code) {
                     case 'search':
-                        this.search(document.getElementById('g6_keyword').value)
+                        this.search()
                         break
                     case 'zoomOut':
                         console.log('zoomOut')
@@ -78,31 +78,31 @@ export default class TopologyStore {
         return toolbar
     }
 
-    search(keyword) {
+    search() {
         const nodes = this.graph.getNodes().map(_ => _.getModel())
         const edges = this.graph.getEdges().map(_ => _.getModel())
-        keyword = keyword ? keyword.trim().toLowerCase() : ''
+        const keyword = document.getElementById('g6_keyword').value.trim().toLowerCase()
         nodes.forEach(_ => {
-            this.graph.clearItemStates(_.id, 'selected')
+            this.graph.clearItemStates(_.id, 'hit')
             if (!keyword) return
             if (_.label.toLowerCase().includes(keyword)) {
-                console.log('selected>node:', _)
-                this.graph.setItemState(_.id, 'selected', true);
+                this.graph.setItemState(_.id, 'hit', true);
             }
         })
         edges.forEach(_ => {
-            this.graph.clearItemStates(_.id, 'selected')
+            this.graph.clearItemStates(_.id, 'hit')
             if (!keyword) return
             if (_.label.toLowerCase().includes(keyword)) {
-                console.log('selected>edge:', _)
-                this.graph.setItemState(_.id, 'selected', true);
+                this.graph.setItemState(_.id, 'hit', true);
             }
         })
     }
 
     changeData(data) {
-        this.data = data
-        this.graph.changeData(data)
+        this.graph.destroy()
+        this.graph = this._initGraph()
+        this.graph.read(new GraphData(data))
+        this.graph.layout()
     }
 
     addItem(type, data) {
