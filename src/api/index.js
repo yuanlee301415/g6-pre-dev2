@@ -13,3 +13,10 @@ export function getTopologyAPI (id) {
     method: 'get'
   })
 }
+
+export function getNeighborsAPI (nodeId) {
+  return request({
+    url: `/neighbors/${nodeId}`,
+    method: 'get'
+  })
+}

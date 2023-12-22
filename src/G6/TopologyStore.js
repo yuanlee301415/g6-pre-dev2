@@ -14,17 +14,17 @@ export default class TopologyStore {
     _initGraph() {
         const graph = new G6.Graph(createConfig(this.config))
         graph.addPlugin(this._initToolbar())
-        graph.addPlugin(this._initMenu())
+        graph.addPlugin(this._initMenu(this.config.menus))
         return graph
     }
 
-    _initMenu() {
+    _initMenu(menus) {
         const menu = new G6.Menu({
             getContent() {
-                return `<ul>
-                  <li id='show-node'>显示节点</li>
-                  <li id='hide-node'>隐藏节点</li>
-                </ul>`;
+                return menus && menus.map(_ => `<li id="${_.key}">${_.label}</li>`).join('')
+            },
+            shouldBegin() {
+                return !!menus
             },
             handleMenuClick(target, item) {
                 console.log('handleMenuClick', {
@@ -32,7 +32,9 @@ export default class TopologyStore {
                     target,
                     item
                 })
-            },
+                const menu = menus.find(_ => _.key === target.id)
+                menu.exec(item)
+            }
         });
         return menu
     }
@@ -108,5 +110,24 @@ export default class TopologyStore {
     addItem(type, data) {
         if (![NODE_TYPE, EDGE_TYPE].includes(type)) return
         this.graph.addItem(type, data)
+    }
+
+    showNeighbors(graphData) {
+        console.log('showNeighbors:', graphData)
+        const nodes = this.graph.getNodes().map(_ => _.getModel())
+        const edges = this.graph.getEdges().map(_ => _.getModel())
+        this.graph.removeBehaviors('activate-relations')
+        nodes.forEach(_ => {
+            this.graph.clearItemStates(_, 'hit')
+        })
+        edges.forEach(_ => {
+            this.graph.clearItemStates(_, 'hit')
+        })
+        this.graph.read(new GraphData({
+            nodes: [...nodes, ...graphData.nodes],
+            edges: [...edges, ...graphData.edges],
+        }))
+        this.graph.addBehaviors('activate-relations')
+        this.search()
     }
 }

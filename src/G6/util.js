@@ -40,7 +40,7 @@ export function createConfig({ container, width, height }) {
             }
         },
         modes: {
-            default: ['drag-canvas', 'zoom-canvas', 'drag-node', 'click-select',
+            default: ['drag-canvas', 'zoom-canvas', 'drag-node',
                 'activate-relations', // 当鼠标移到某节点时，突出显示该节点以及与其直接关联的节点和连线
             ]
         },

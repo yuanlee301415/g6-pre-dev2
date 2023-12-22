@@ -510,5 +510,64 @@
         }
       ]
     }
+  ],
+  "neighbors": [
+    {
+      "id": "service",
+      "nodes": [
+        {
+          "id": "POP3",
+          "label": "POP3"
+        },
+        {
+          "id": "JVM",
+          "label": "JVM"
+        },
+        {
+          "id": "HTTP",
+          "label": "HTTP"
+        },
+        {
+          "id": "DNS",
+          "label": "DNS"
+        },
+        {
+          "id": "FTP",
+          "label": "FTP"
+        }
+      ],
+      "edges": [
+        {
+          "id": "service->POP3",
+          "source": "service",
+          "target": "POP3",
+          "label": "service->POP3"
+        },
+        {
+          "id": "service->JVM",
+          "source": "service",
+          "target": "JVM",
+          "label": "service->JVM"
+        },
+        {
+          "id": "service->HTTP",
+          "source": "service",
+          "target": "HTTP",
+          "label": "service->HTTP"
+        },
+        {
+          "id": "service->DNS",
+          "source": "service",
+          "target": "DNS",
+          "label": "service->DNS"
+        },
+        {
+          "id": "service->FTP",
+          "source": "service",
+          "target": "FTP",
+          "label": "service->FTP"
+        }
+      ]
+    }
   ]
 }

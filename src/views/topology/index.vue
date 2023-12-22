@@ -16,6 +16,7 @@
         <el-option value="default" label="默认拓扑图"></el-option>
         <el-option value="all" label="所有节点"></el-option>
       </el-select>
+      <el-button @click="getTopology()">Reload</el-button>
       <div ref="graphContainer" style="height: 600px;border: 1px solid #999;position: relative;"/>
     </div>
 
@@ -23,7 +24,7 @@
 </template>
 
 <script>
-import { getCitTreeAPI, getTopologyAPI} from "@/api";
+import { getCitTreeAPI, getTopologyAPI, getNeighborsAPI } from "@/api";
 import ModelTree from '@/components/ModelTree'
 import TopologyStore, { NODE_TYPE} from '@/G6/TopologyStore'
 
@@ -52,12 +53,22 @@ export default {
     topology = new TopologyStore({
       container: container,
       width: container.scrollWidth,
-      height: container.scrollHeight
+      height: container.scrollHeight,
+      menus: [
+        { key: 'show-neighbors', label: '显示邻居', exec: this.showNeighbors}
+      ]
     })
     console.log(topology)
     this.getTopology()
   },
   methods: {
+    showNeighbors(node) {
+      getNeighborsAPI(node.getModel().id).then(res => {
+        if (res.code !== 0) return
+        topology.showNeighbors(res.data)
+      })
+    },
+
     getCitTree() {
       getCitTreeAPI().then(res => {
         if (res.code !== 0) return
