@@ -23,10 +23,9 @@
 </template>
 
 <script>
-import G6 from "@antv/g6";
 import { getCitTreeAPI, getTopologyAPI} from "@/api";
 import ModelTree from '@/components/ModelTree'
-import Topology, { NODE_TYPE} from './Topology'
+import TopologyStore, { NODE_TYPE} from '@/G6/TopologyStore'
 
 let topology
 
@@ -50,7 +49,7 @@ export default {
   },
   mounted() {
     const container = this.$refs['graphContainer']
-    topology = new Topology(G6, {
+    topology = new TopologyStore({
       container: container,
       width: container.scrollWidth,
       height: container.scrollHeight
@@ -72,12 +71,12 @@ export default {
         if (res.code !== 0) return
         return res.data
       }).then(data => {
-        this.initGraphData(data)
+        this.changeData(data)
       })
     },
 
-    initGraphData(data) {
-      topology.initData(data)
+    changeData(data) {
+      topology.changeData(data)
     },
 
     onItemClick(node, item) {

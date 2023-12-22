@@ -1,101 +1,25 @@
+import G6 from "@antv/g6";
+import { GraphData } from "@/G6/GraphData";
+import { createConfig } from "@/G6/util";
+
 export const NODE_TYPE = 'node'
 export const EDGE_TYPE = 'edge'
 
-
-export default class Topology {
-    constructor(G6, config) {
-        this.G6 = G6
+export default class TopologyStore {
+    constructor(config) {
         this.config = config
-        this.graph = this.init()
+        this.graph = this._initGraph()
     }
 
-    init() {
-        const {container, width, height} = this.config
-        const graph = new this.G6.Graph({
-            container,
-            width,
-            height,
-            fitView: true,
-            layout: {
-                type: 'gForce'
-            },
-            defaultNode: {
-                style: {
-                    fill: '#10b981',
-                    lineWidth: 0
-                },
-                labelCfg: {
-                    position: 'bottom',
-                    style: {
-                        fill: '#333',
-                        fontSize: 7
-                    }
-                }
-            },
-            defaultEdge: {
-                type: 'quadratic',
-                style: {
-                    stroke: '#10b981',
-                    lineWidth: 1,
-                    endArrow: {
-                        path: this.G6.Arrow.vee(5, 6, 3),
-                        d: 3
-                    }
-                },
-                labelCfg: {
-                    style: {
-                        fill: '#999',
-                        fontSize: 6
-                    },
-                }
-            },
-            modes: {
-                default: ['drag-canvas', 'zoom-canvas', 'drag-node', 'click-select',
-                    {
-                        /**
-                         * 当鼠标移到某节点时，突出显示该节点以及与其直接关联的节点和连线；
-                         */
-                        type: 'activate-relations',
-                        trigger: 'click'
-                    }
-                ]
-            },
-            nodeStateStyles: {
-                active: {
-                    fill: '#10b981',
-                    lineWidth: 0,
-                    'text-shape': {
-                        fill: '#10b981'
-                    }
-                },
-                inactive: {
-                    opacity: 0.8,
-                    'text-shape': {
-                        opacity: 0.8
-                    }
-                }
-            },
-            edgeStateStyles: {
-                active: {
-                    stroke: '#10b981',
-                    'text-shape': {
-                        fill: '#10b981'
-                    }
-                },
-                inactive: {
-                    opacity: 0.8,
-                    'text-shape': {
-                        opacity: 0.8
-                    }
-                }
-            },
-            plugins: [this.initMenu(), this.initToolbar()],
-        })
+    _initGraph() {
+        const graph = new G6.Graph(createConfig(this.config))
+        graph.addPlugin(this._initToolbar())
+        graph.addPlugin(this._initMenu())
         return graph
     }
 
-    initMenu() {
-        const menu = new this.G6.Menu({
+    _initMenu() {
+        const menu = new G6.Menu({
             getContent() {
                 return `<ul>
                   <li id='show-node'>显示节点</li>
@@ -113,8 +37,8 @@ export default class Topology {
         return menu
     }
 
-    initToolbar() {
-        const toolbar = new this.G6.ToolBar({
+    _initToolbar() {
+        const toolbar = new G6.ToolBar({
             className: 'g6-custom-toolbar',
             getContent: () => {
                 const outDiv = document.createElement('ul');
@@ -155,7 +79,6 @@ export default class Topology {
     }
 
     search(keyword) {
-        console.log('search>keyword:', keyword)
         const nodes = this.graph.getNodes().map(_ => _.getModel())
         const edges = this.graph.getEdges().map(_ => _.getModel())
         keyword = keyword ? keyword.trim().toLowerCase() : ''
@@ -177,7 +100,7 @@ export default class Topology {
         })
     }
 
-    initData(data) {
+    changeData(data) {
         this.data = data
         this.graph.changeData(data)
     }
