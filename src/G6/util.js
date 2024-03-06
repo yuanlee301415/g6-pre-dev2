@@ -5,13 +5,14 @@ export function createConfig({ container, width, height }) {
         container,
         width,
         height,
-        fitView: true,
+        fitCenter: true,
         layout: {
-            type: 'gForce',
+            type: 'force2',
             animate: true,
             maxIteration: 100,
         },
         defaultNode: {
+            nodeSize: 15,
             style: {
                 lineWidth: 0,
                 fill: '#10b981'
