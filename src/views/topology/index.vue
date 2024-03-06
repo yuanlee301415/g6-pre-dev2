@@ -107,6 +107,10 @@ export default {
 
     onDragend(node, item, e) {
       console.log('onDragend>args:', arguments)
+      if (topology.graph.find('node', _ => _.getModel().id === item.name)) {
+        this.$alert('节点已存在！')
+        return
+      }
       const point = topology.graph.getPointByClient(e.x, e.y)
       console.log('onDragend>point:', point)
 
