@@ -538,8 +538,57 @@
   ],
   "neighbors": [
     {
-      "id": "service",
+      "id": "rac",
+      "__LABEL__": "集群",
       "nodes": [
+        {
+          "id": "rac",
+          "label": "集群"
+        },
+        {
+          "id": "OracleRac",
+          "label": "OracleRac"
+        }
+      ],
+      "edges": [
+        {
+          "id": "rac->OracleRac",
+          "source": "rac",
+          "target": "OracleRac",
+          "label": "集群->OracleRac"
+        }
+      ]
+    },
+    {
+      "id": "kvm",
+      "__LABEL__": "KVM虚拟化",
+      "nodes": [
+        {
+          "id": "kvm",
+          "label": "KVM虚拟化"
+        },
+        {
+          "id": "KVMHost",
+          "label": "KVMHost"
+        }
+      ],
+      "edges": [
+        {
+          "id": "kvm->KVMHost",
+          "source": "kvm",
+          "target": "KVMHost",
+          "label": "KVM虚拟化->KVMHost"
+        }
+      ]
+    },
+    {
+      "id": "service",
+      "__LABEL__": "标准应用",
+      "nodes": [
+        {
+          "id": "service",
+          "label": "标准应用"
+        },
         {
           "id": "POP3",
           "label": "POP3"
@@ -566,31 +615,199 @@
           "id": "service->POP3",
           "source": "service",
           "target": "POP3",
-          "label": "service->POP3"
+          "label": "标准应用->POP3"
         },
         {
           "id": "service->JVM",
           "source": "service",
           "target": "JVM",
-          "label": "service->JVM"
+          "label": "标准应用->JVM"
         },
         {
           "id": "service->HTTP",
           "source": "service",
           "target": "HTTP",
-          "label": "service->HTTP"
+          "label": "标准应用->HTTP"
         },
         {
           "id": "service->DNS",
           "source": "service",
           "target": "DNS",
-          "label": "service->DNS"
+          "label": "标准应用->DNS"
         },
         {
           "id": "service->FTP",
           "source": "service",
           "target": "FTP",
-          "label": "service->FTP"
+          "label": "标准应用->FTP"
+        }
+      ]
+    },
+    {
+      "id": "database",
+      "__LABEL__": "数据库",
+      "nodes": [
+        {
+          "id": "database",
+          "label": "数据库"
+        },
+        {
+          "id": "MySQL",
+          "label": "MySQL"
+        },
+        {
+          "id": "DM",
+          "label": "DM"
+        },
+        {
+          "id": "MSSQL",
+          "label": "MSSQL"
+        }
+      ],
+      "edges": [
+        {
+          "id": "database->MySQL",
+          "source": "database",
+          "target": "MySQL",
+          "label": "数据库->MySQL"
+        },
+        {
+          "id": "database->DM",
+          "source": "database",
+          "target": "DM",
+          "label": "数据库->DM"
+        },
+        {
+          "id": "database->MSSQL",
+          "source": "database",
+          "target": "MSSQL",
+          "label": "数据库->MSSQL"
+        }
+      ]
+    },
+    {
+      "id": "host",
+      "__LABEL__": "主机",
+      "nodes": [
+        {
+          "id": "host",
+          "label": "主机"
+        },
+        {
+          "id": "LinuxServer",
+          "label": "LinuxServer"
+        },
+        {
+          "id": "Windows",
+          "label": "Windows"
+        },
+        {
+          "id": "IBMAixServer",
+          "label": "IBMAixServer"
+        },
+        {
+          "id": "SolarisServer",
+          "label": "SolarisServer"
+        },
+        {
+          "id": "HPUnixServer",
+          "label": "HPUnixServer"
+        }
+      ],
+      "edges": [
+        {
+          "id": "host->LinuxServer",
+          "source": "host",
+          "target": "LinuxServer",
+          "label": "主机->LinuxServer"
+        },
+        {
+          "id": "host->Windows",
+          "source": "host",
+          "target": "Windows",
+          "label": "主机->Windows"
+        },
+        {
+          "id": "host->IBMAixServer",
+          "source": "host",
+          "target": "IBMAixServer",
+          "label": "主机->IBMAixServer"
+        },
+        {
+          "id": "host->SolarisServer",
+          "source": "host",
+          "target": "SolarisServer",
+          "label": "主机->SolarisServer"
+        },
+        {
+          "id": "host->HPUnixServer",
+          "source": "host",
+          "target": "HPUnixServer",
+          "label": "主机->HPUnixServer"
+        }
+      ]
+    },
+    {
+      "id": "line",
+      "__LABEL__": "线路",
+      "nodes": [
+        {
+          "id": "line",
+          "label": "线路"
+        },
+        {
+          "id": "Line",
+          "label": "Line"
+        }
+      ],
+      "edges": [
+        {
+          "id": "line->Line",
+          "source": "line",
+          "target": "Line",
+          "label": "线路->Line"
+        }
+      ]
+    },
+    {
+      "id": "network",
+      "__LABEL__": "网络设备",
+      "nodes": [
+        {
+          "id": "network",
+          "label": "网络设备"
+        },
+        {
+          "id": "H3C_AP",
+          "label": "H3C_AP"
+        },
+        {
+          "id": "RG_WS",
+          "label": "RG_WS"
+        },
+        {
+          "id": "DC_AP",
+          "label": "DC_AP"
+        }
+      ],
+      "edges": [
+        {
+          "id": "network->H3C_AP",
+          "source": "network",
+          "target": "H3C_AP",
+          "label": "网络设备->H3C_AP"
+        },
+        {
+          "id": "network->RG_WS",
+          "source": "network",
+          "target": "RG_WS",
+          "label": "网络设备->RG_WS"
+        },
+        {
+          "id": "network->DC_AP",
+          "source": "network",
+          "target": "DC_AP",
+          "label": "网络设备->DC_AP"
         }
       ]
     }
