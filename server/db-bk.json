@@ -248,6 +248,31 @@
       ]
     },
     {
+      "id": "overlap",
+      "nodes": [
+        {
+          "id": "rac",
+          "label": "集群"
+        },
+        {
+          "id": "kvm",
+          "label": "KVM虚拟化"
+        }
+      ],
+      "edges": [
+        {
+          "source": "rac",
+          "target": "kvm",
+          "label": "运行"
+        },
+        {
+          "source": "rac",
+          "target": "kvm",
+          "label": "安装"
+        }
+      ]
+    },
+    {
       "id": "all",
       "nodes": [
         {

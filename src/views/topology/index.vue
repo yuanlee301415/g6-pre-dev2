@@ -14,6 +14,7 @@
     <div class="right">
       <el-select v-model="topology.id" @change="handleChangeGraph">
         <el-option value="default" label="默认拓扑图"></el-option>
+        <el-option value="overlap" label="边重叠"></el-option>
         <el-option value="all" label="所有节点"></el-option>
       </el-select>
       <el-button @click="getTopology()">Reload</el-button>
@@ -24,6 +25,8 @@
 </template>
 
 <script>
+import G6 from "@antv/g6";
+
 import { getCitTreeAPI, getTopologyAPI, getNeighborsAPI } from "@/api";
 import ModelTree from '@/components/ModelTree'
 import TopologyStore, { NODE_TYPE} from '@/G6/TopologyStore'
@@ -41,7 +44,7 @@ export default {
         data: null
       },
       topology: {
-        id: 'default',
+        id: 'overlap',
       }
     }
   },
