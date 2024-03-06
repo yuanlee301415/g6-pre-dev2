@@ -103,10 +103,8 @@ export default class TopologyStore {
     changeData(data) {
         data = new GraphData(data)
         G6.Util.processParallelEdges(data.edges);
-        this.graph.destroy()
-        this.graph = this._initGraph()
-        this.graph.read(data)
-        this.graph.layout()
+        this.graph.data(data)
+        this.graph.render()
     }
 
     addItem(type, data) {
