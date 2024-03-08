@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import G6 from "@antv/g6";
-
 import { getCitTreeAPI, getTopologyAPI, getNeighborsAPI } from "@/api";
 import ModelTree from '@/components/ModelTree'
 import TopologyStore, { NODE_TYPE} from '@/G6/TopologyStore'
@@ -44,7 +42,8 @@ export default {
         data: null
       },
       topology: {
-        id: 'overlap',
+        // id: 'overlap',
+        id: 'default',
       }
     }
   },

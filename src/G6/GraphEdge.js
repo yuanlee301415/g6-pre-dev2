@@ -7,5 +7,6 @@ export class GraphEdge {
         this.source = source
         this.target = target
         this.label = label
+        this.description = `From: ${source} to ${target}`
     }
 }
